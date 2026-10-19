@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 # Builds and measures this node's share of .work/plan.txt. A failing toolchain is logged and skipped
 # so it never blocks the others; its log is kept as a build artifact.
+#
+# Branches other than main only build: that catches a broken toolchain bump before merge, and the
+# measuring happens once, on main, where the results are published. A manual trigger always measures.
 set -uo pipefail
+
+measure=true
+if [ "${CIRCLE_BRANCH:-}" != "main" ] && [ -z "${REQUESTED:-}" ]; then
+  measure=false
+  echo "Branch ${CIRCLE_BRANCH:-?}: building only."
+fi
 
 mkdir -p .work/results/ci-4vcpu .work/logs
 mine=$(circleci tests split .work/plan.txt)
@@ -18,7 +27,8 @@ failed=()
 for id in $mine; do
   echo "=== $id"
   if ! { .venv/bin/python -m runner build --toolchain "$id" \
-      && .venv/bin/python -m runner measure --toolchain "$id" --profile ci-4vcpu; } 2>&1 | tee ".work/logs/$id.log"; then
+      && { [ "$measure" = false ] || .venv/bin/python -m runner measure --toolchain "$id" --profile ci-4vcpu; }; } \
+      2>&1 | tee ".work/logs/$id.log"; then
     failed+=("$id")
   fi
   # Each toolchain image is several GB; the machine's disk only fits a few at once.

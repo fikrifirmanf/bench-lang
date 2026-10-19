@@ -8,6 +8,8 @@ if ! ls .work/results/ci-4vcpu/*.json > /dev/null 2>&1; then
   exit 0
 fi
 
+: "${GH_BOT_TOKEN:?is not set. Add it in CircleCI Project Settings > Environment Variables (see README, CircleCI section)}"
+
 python -m runner compare --profile ci-4vcpu
 python -m runner merge --profile ci-4vcpu
 

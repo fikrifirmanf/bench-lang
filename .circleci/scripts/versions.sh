@@ -3,6 +3,8 @@
 # opens (or refreshes) one pull request. Pushing that branch starts a pipeline that benchmarks them.
 set -euo pipefail
 
+: "${GH_BOT_TOKEN:?is not set. Add it in CircleCI Project Settings > Environment Variables (see README, CircleCI section)}"
+
 python -m runner versions --write --changes-file .work-changes.txt
 if [ ! -s .work-changes.txt ]; then
   echo "Every toolchain is current."

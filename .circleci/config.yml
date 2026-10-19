@@ -91,6 +91,8 @@ jobs:
           name: Build and measure
           command: .circleci/scripts/bench.sh
           no_output_timeout: 30m
+          environment:
+            REQUESTED: << pipeline.parameters.bench_toolchains >>
       - store_artifacts:
           path: .work/results
       - store_artifacts:
