@@ -101,6 +101,20 @@ Add one entry to `bench/toolchains.json`:
    variable `SMALL_VM_ENABLED=true`.
 5. Run the **bench** workflow manually once with `all` to replace the imported numbers with your own.
 
+### CircleCI instead of GitHub Actions
+
+`.circleci/config.yml` does the same jobs (without the small-VM leg) for when Actions is unavailable. Run only one
+of the two: disable the GitHub workflows with `gh workflow disable <name>` while CircleCI is in use.
+
+1. Sign in at circleci.com with GitHub, set up this repository and pick the existing `.circleci/config.yml`.
+2. Project Settings → Environment Variables: add `GH_BOT_TOKEN`, the fine-grained token from step 3 above. It pushes
+   results to `main` and the version bot's branch.
+3. Project Settings → Triggers: add a daily schedule on `main` with the pipeline parameter `run_versions` = `true`.
+4. Trigger a pipeline on `main` with the parameter `bench_toolchains` = `all` for the first full run.
+
+The benchmark job uses the `large` machine class (4 vCPU, 15 GB), about 20 credits per minute, split over 4 parallel
+machines. A full run is roughly 100–300 machine minutes; a version bump is 10–30.
+
 ## Data
 
 `data/latest/ci-4vcpu.json` starts as an import of upstream's last published run (Aug 1, 2025; 1,468 results, 28
