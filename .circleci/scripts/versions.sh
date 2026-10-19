@@ -12,7 +12,7 @@ if [ ! -s .work-changes.txt ]; then
 fi
 
 branch=bot/toolchain-updates
-repo="${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
+repo=$(.circleci/scripts/github-repo.sh)
 remote="https://x-access-token:${GH_BOT_TOKEN}@github.com/${repo}.git"
 
 git checkout -q -B "$branch"
@@ -38,7 +38,7 @@ api() {
     "$@"
 }
 
-existing=$(api "https://api.github.com/repos/${repo}/pulls?state=open&head=${CIRCLE_PROJECT_USERNAME}:${branch}" \
+existing=$(api "https://api.github.com/repos/${repo}/pulls?state=open&head=${repo%%/*}:${branch}" \
   | python -c 'import json, sys; prs = json.load(sys.stdin); print(prs[0]["number"] if prs else "")')
 
 if [ -n "$existing" ]; then

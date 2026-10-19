@@ -23,7 +23,7 @@ git config user.name "bench-lang bot"
 git config user.email "bench-lang-bot@users.noreply.github.com"
 git commit -q -m "Publish benchmark results (CircleCI ${CIRCLE_BUILD_NUM}) [skip ci]"
 
-remote="https://x-access-token:${GH_BOT_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
+remote="https://x-access-token:${GH_BOT_TOKEN}@github.com/$(.circleci/scripts/github-repo.sh).git"
 # main may have moved while the benchmarks ran. Only this job writes data/, so the rebase does not conflict.
 for attempt in 1 2 3; do
   git pull -q --rebase "$remote" main && git push -q "$remote" HEAD:main && exit 0
