@@ -1,0 +1,7 @@
+# The site only needs web/, data/ and bench/. Keep local build output out of CLI uploads.
+.work
+vendor
+.venv
+web/node_modules
+web/.next
+web/out

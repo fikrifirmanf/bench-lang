@@ -28,12 +28,12 @@
     },
     {
       "id": "local",
-      "name": "Local machine",
+      "name": "Apple M5 laptop",
       "cpuset_single": "0",
       "cpuset_multi": "0-1",
       "memory_mb": 4096,
-      "warmup": 0,
-      "repeats": 1,
+      "warmup": 1,
+      "repeats": 3,
       "timeout_s": 30,
       "inputs": "largest",
       "env": {}
