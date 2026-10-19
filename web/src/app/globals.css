@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f6f2;
+  --color-card: #ffffff;
+  --color-ink: #111111;
+  --color-ink-soft: #3d3d3d;
+  --color-line: #d6d3cb;
+  --color-stone: #e4e2dc;
+  --color-lemon: #ffe76a;
+  --color-mint: #9ee6c4;
+  --color-sky: #a9c8ff;
+  --color-coral: #ffb59e;
+  --color-alert: #b42318;
+
+  /* Trend lines: dark enough to read as 3px strokes on paper. */
+  --color-chart-1: #111111;
+  --color-chart-2: #2a5bd7;
+  --color-chart-3: #12805a;
+  --color-chart-4: #d4511c;
+  --color-chart-5: #7a4cc4;
+
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --shadow-brutal-sm: 3px 3px 0 var(--color-ink);
+  --shadow-brutal: 4px 4px 0 var(--color-ink);
+  --shadow-brutal-lg: 6px 6px 0 var(--color-ink);
+
+  --radius-card: 22px;
+}
+
+/* Raised elements lift on hover and press flat on click. */
+@utility press {
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-ink);
+  }
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--color-ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}

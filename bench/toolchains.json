@@ -1,0 +1,382 @@
+{
+  "toolchains": [
+    {
+      "id": "python",
+      "lang": "python",
+      "config": "bench_python.yaml",
+      "compiler": "cpython",
+      "version": "3.13.5",
+      "image": "python:{version}-slim-bookworm",
+      "version_command": "python3 --version",
+      "env": {
+        "PYTHONINTMAXSTRDIGITS": "0"
+      },
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/python",
+        "name_hint": "slim-bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim-bookworm$"
+      }
+    },
+    {
+      "id": "node",
+      "lang": "javascript",
+      "config": "bench_javascript.yaml",
+      "compiler": "node",
+      "version": "24.4.1",
+      "image": "node:{version}-bookworm-slim",
+      "version_command": "node --version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/node",
+        "name_hint": "bookworm-slim",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-bookworm-slim$"
+      }
+    },
+    {
+      "id": "bun",
+      "lang": "javascript",
+      "config": "bench_javascript_bun.yaml",
+      "compiler": "bun",
+      "version": "1.2.19",
+      "image": "oven/bun:{version}-slim",
+      "version_command": "bun --version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "oven/bun",
+        "name_hint": "slim",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim$"
+      }
+    },
+    {
+      "id": "deno",
+      "lang": "typescript",
+      "config": "bench_typescript_deno.yaml",
+      "compiler": "deno",
+      "version": "2.4.3",
+      "image": "denoland/deno:debian-{version}",
+      "version_command": "deno --version",
+      "build": "deno run --allow-all esbuild.mjs && deno compile --no-check --allow-all --unsafely-ignore-certificate-errors=localhost -o out/app app.ts",
+      "check": {
+        "source": "dockerhub",
+        "repo": "denoland/deno",
+        "name_hint": "debian-",
+        "tag_regex": "^debian-(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "go",
+      "lang": "go",
+      "config": "bench_go.yaml",
+      "compiler": "go",
+      "version": "1.24.5",
+      "image": "golang:{version}-bookworm",
+      "version_command": "go version",
+      "cache_dirs": [
+        "/go/pkg/mod",
+        "/root/.cache/go-build"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/golang",
+        "name_hint": "bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-bookworm$"
+      }
+    },
+    {
+      "id": "rust",
+      "lang": "rust",
+      "config": "bench_rust.yaml",
+      "compiler": "rustc",
+      "version": "1.88.0",
+      "image": "rust:{version}-slim-bookworm",
+      "version_command": "rustc -V",
+      "env": {
+        "CC": "gcc",
+        "CXX": "g++"
+      },
+      "setup": [
+        "rm -f rust-toolchain.toml"
+      ],
+      "cache_dirs": [
+        "/usr/local/cargo/registry"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/rust",
+        "name_hint": "slim-bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim-bookworm$"
+      }
+    },
+    {
+      "id": "c-gcc",
+      "lang": "c",
+      "config": "bench_c.yaml",
+      "compiler": "gcc",
+      "version": "15.1.0",
+      "image": "gcc:{version}",
+      "version_command": "gcc --version",
+      "image_setup": [
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends libgmp-dev libpcre2-dev libapr1-dev >/dev/null"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/gcc",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "cpp-gcc",
+      "lang": "cpp",
+      "config": "bench_cpp.yaml",
+      "compiler": "g++",
+      "version": "15.1.0",
+      "image": "gcc:{version}",
+      "version_command": "g++ --version",
+      "image_setup": [
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends libgmp-dev libpcre2-dev libapr1-dev libboost-dev >/dev/null"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/gcc",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "java",
+      "lang": "java",
+      "config": "bench_java.yaml",
+      "compiler": "openjdk",
+      "version": "21",
+      "image": "eclipse-temurin:{version}-jdk",
+      "version_command": "java -version 2>&1",
+      "build": "javac --enable-preview --release {version} --add-modules jdk.incubator.vector app.java -d out",
+      "run_cmd": "java --enable-preview --add-modules jdk.incubator.vector app",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/eclipse-temurin",
+        "name_hint": "-jdk",
+        "tag_regex": "^(\\d+)-jdk$"
+      }
+    },
+    {
+      "id": "java-zgc",
+      "lang": "java",
+      "config": "bench_java.yaml",
+      "compiler": "openjdk/zgc",
+      "version": "21",
+      "image": "eclipse-temurin:{version}-jdk",
+      "version_command": "java -version 2>&1",
+      "build": "javac --enable-preview --release {version} --add-modules jdk.incubator.vector app.java -d out",
+      "run_cmd": "java -XX:+UseZGC -Xlog:all=off --enable-preview --add-modules jdk.incubator.vector app",
+      "exclude_profiles": [
+        "small-vm"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/eclipse-temurin",
+        "name_hint": "-jdk",
+        "tag_regex": "^(\\d+)-jdk$"
+      }
+    },
+    {
+      "id": "kotlin-jvm",
+      "lang": "kotlin",
+      "config": "bench_kotlin_jvm.yaml",
+      "compiler": "kotlin/jvm",
+      "version": "21",
+      "image": "eclipse-temurin:{version}-jdk",
+      "version_command": "java -version 2>&1",
+      "run_cmd": "java -jar app.jar",
+      "cache_dirs": [
+        "/root/.gradle"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/eclipse-temurin",
+        "name_hint": "-jdk",
+        "tag_regex": "^(\\d+)-jdk$"
+      }
+    },
+    {
+      "id": "dotnet",
+      "lang": "csharp",
+      "config": "bench_csharp.yaml",
+      "compiler": "dotnet",
+      "version": "9.0.303",
+      "image": "mcr.microsoft.com/dotnet/sdk:{version}",
+      "version_command": "dotnet --version",
+      "cache_dirs": [
+        "/root/.nuget/packages"
+      ],
+      "check": {
+        "source": "mcr",
+        "repo": "dotnet/sdk",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.0\\.\\d+)$"
+      }
+    },
+    {
+      "id": "ruby",
+      "lang": "ruby",
+      "config": "bench_ruby.yaml",
+      "compiler": "ruby",
+      "version": "3.4.5",
+      "image": "ruby:{version}-slim-bookworm",
+      "version_command": "ruby --version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/ruby",
+        "name_hint": "slim-bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim-bookworm$"
+      }
+    },
+    {
+      "id": "ruby-yjit",
+      "lang": "ruby",
+      "config": "bench_ruby.yaml",
+      "compiler": "ruby/yjit",
+      "version": "3.4.5",
+      "image": "ruby:{version}-slim-bookworm",
+      "version_command": "ruby --version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/ruby",
+        "name_hint": "slim-bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim-bookworm$"
+      }
+    },
+    {
+      "id": "php",
+      "lang": "php",
+      "config": "bench_php.yaml",
+      "compiler": "php",
+      "version": "8.2.29",
+      "image": "php:{version}-cli-bookworm",
+      "version_command": "php --version",
+      "run_cmd": "php -dzend_extension=opcache -dopcache.enable_cli=1 -dopcache.jit_buffer_size=256M app.php",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/php",
+        "name_hint": "cli-bookworm",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-cli-bookworm$"
+      }
+    },
+    {
+      "id": "perl",
+      "lang": "perl",
+      "config": "bench_perl.yaml",
+      "compiler": "perl",
+      "version": "5.40.2",
+      "image": "perl:{version}-slim-bookworm",
+      "version_command": "perl -e 'print $^V'",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/perl",
+        "name_hint": "slim-bookworm",
+        "tag_regex": "^(5\\.\\d*[02468]\\.\\d+)-slim-bookworm$"
+      }
+    },
+    {
+      "id": "nim",
+      "lang": "nim",
+      "config": "bench_nim.yaml",
+      "compiler": "nim",
+      "version": "2.2.4",
+      "image": "nimlang/nim:{version}",
+      "version_command": "nim --version",
+      "cache_dirs": [
+        "/root/.nimble"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "nimlang/nim",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "crystal",
+      "lang": "crystal",
+      "config": "bench_crystal.yaml",
+      "compiler": "crystal",
+      "version": "1.17.0",
+      "image": "crystallang/crystal:{version}",
+      "version_command": "crystal version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "crystallang/crystal",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "dart",
+      "lang": "dart",
+      "config": "bench_dart.yaml",
+      "compiler": "dart/exe",
+      "version": "3.8.2",
+      "image": "dart:{version}",
+      "version_command": "dart --version 2>&1",
+      "cache_dirs": [
+        "/root/.pub-cache"
+      ],
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/dart",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "swift",
+      "lang": "swift",
+      "config": "bench_swift.yaml",
+      "compiler": "swift",
+      "version": "6.1.2",
+      "image": "swift:{version}-noble",
+      "version_command": "swift --version 2>&1",
+      "check": {
+        "source": "dockerhub",
+        "repo": "library/swift",
+        "name_hint": "noble",
+        "tag_regex": "^(\\d+\\.\\d+(?:\\.\\d+)?)-noble$"
+      }
+    },
+    {
+      "id": "zig",
+      "lang": "zig",
+      "config": "bench_zig.yaml",
+      "compiler": "zig",
+      "version": "0.14.1",
+      "image": "debian:bookworm-slim",
+      "image_setup": [
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends curl ca-certificates xz-utils >/dev/null && curl -fsSL https://ziglang.org/download/{version}/zig-$(uname -m)-linux-{version}.tar.xz | tar -xJ -C /opt && ln -sf /opt/zig-*/zig /usr/local/bin/zig"
+      ],
+      "version_command": "zig version",
+      "check": {
+        "source": "github-tags",
+        "repo": "ziglang/zig",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+      }
+    },
+    {
+      "id": "ocaml",
+      "lang": "ocaml",
+      "config": "bench_ocaml.yaml",
+      "compiler": "ocaml",
+      "version": "5.3",
+      "image": "ocaml/opam:debian-12-ocaml-{version}",
+      "version_command": "opam exec -- ocaml -version",
+      "check": {
+        "source": "dockerhub",
+        "repo": "ocaml/opam",
+        "name_hint": "debian-12-ocaml-",
+        "tag_regex": "^debian-12-ocaml-(\\d+\\.\\d+)$"
+      }
+    }
+  ]
+}

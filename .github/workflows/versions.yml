@@ -1,0 +1,65 @@
+name: toolchain versions
+
+# Daily: look for newer stable toolchain releases and open (or refresh) one pull request that bumps them.
+# The pull request must be opened with BOT_TOKEN: pull requests opened with the default GITHUB_TOKEN
+# do not trigger other workflows, so bench.yml would never rerun the benchmarks for it.
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: toolchain-versions
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Check registries
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m runner versions --write --changes-file changes.txt
+      - name: Describe changes
+        id: changes
+        run: |
+          if [ -s changes.txt ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "body<<EOF"
+              echo "Newer stable toolchains were released. Merging reruns their benchmarks and publishes the results."
+              echo
+              sed 's/^/- /' changes.txt
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+          rm -f changes.txt
+      - name: Open pull request
+        if: steps.changes.outputs.found == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.BOT_TOKEN || github.token }}
+          branch: bot/toolchain-updates
+          title: "Toolchain updates"
+          commit-message: "Bump toolchain versions"
+          body: ${{ steps.changes.outputs.body }}
+          add-paths: |
+            bench/toolchains.json
+            data/versions.json
+          labels: toolchains
+          delete-branch: true

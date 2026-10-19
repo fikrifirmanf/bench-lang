@@ -1,0 +1,28 @@
+{
+  "profiles": [
+    {
+      "id": "ci-4vcpu",
+      "name": "CI · 4 vCPU / 16 GB",
+      "latest_run": "2025-08-01-upstream"
+    },
+    {
+      "id": "small-vm",
+      "name": "Small VM · 2 vCPU / 2 GB",
+      "latest_run": null
+    },
+    {
+      "id": "local",
+      "name": "Local machine",
+      "latest_run": null
+    }
+  ],
+  "runs": [
+    {
+      "id": "2025-08-01-upstream",
+      "profile": "ci-4vcpu",
+      "started_at": "2025-08-01T00:00:00+00:00",
+      "source": "import",
+      "rows": 1468
+    }
+  ]
+}

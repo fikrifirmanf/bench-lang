@@ -1,0 +1,216 @@
+name: bench
+
+# Builds and measures toolchains, then publishes results into data/ (which redeploys the site).
+#
+#   pull request -> benchmark the toolchains the PR changed, report in the job summary, publish nothing
+#   push to main -> benchmark what changed and publish
+#   manual run   -> benchmark "all" or a comma-separated list of toolchain ids, and publish
+#
+# The small-VM leg runs on a self-hosted runner labelled `small-vm` and only when the repository
+# variable SMALL_VM_ENABLED is "true". It reuses the programs CI already compiled, so the VM never builds.
+
+on:
+  pull_request:
+    paths: ["bench/toolchains.json", "bench/profiles.json", "bench/timer/**", "runner/**"]
+  push:
+    branches: [main]
+    paths: ["bench/toolchains.json", "bench/profiles.json", "bench/timer/**", "runner/**"]
+  workflow_dispatch:
+    inputs:
+      toolchains:
+        description: '"all" or comma-separated toolchain ids'
+        default: all
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bench-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  PUBLISH: ${{ github.event_name != 'pull_request' }}
+  RUN_SMALL_VM: ${{ vars.SMALL_VM_ENABLED == 'true' && github.event_name != 'pull_request' }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      ci: ${{ steps.plan.outputs.ci }}
+      small: ${{ steps.plan.outputs.small }}
+      has_ci: ${{ steps.plan.outputs.has_ci }}
+      has_small: ${{ steps.plan.outputs.has_small }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Choose toolchains
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT: ${{ inputs.toolchains }}
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            if [ "$INPUT" = "all" ]; then select=(--all); else select=(--all --only "$INPUT"); fi
+          elif git diff --name-only "$BASE" HEAD | grep -qE '^(runner/|bench/timer/|bench/profiles.json)'; then
+            select=(--all)
+          else
+            git show "$BASE:bench/toolchains.json" > base-toolchains.json 2>/dev/null || : > base-toolchains.json
+            select=(--base base-toolchains.json)
+          fi
+          ci=$(python -m runner changed "${select[@]}" --profile ci-4vcpu)
+          small=$(python -m runner changed "${select[@]}" --profile small-vm)
+          empty='{"toolchain": []}'
+          {
+            echo "ci=$ci"
+            echo "small=$small"
+            echo "has_ci=$([ "$ci" = "$empty" ] && echo false || echo true)"
+            echo "has_small=$([ "$small" = "$empty" ] && echo false || echo true)"
+          } >> "$GITHUB_OUTPUT"
+          echo "Toolchains: $ci" >> "$GITHUB_STEP_SUMMARY"
+
+  bench:
+    needs: plan
+    if: needs.plan.outputs.has_ci == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJSON(needs.plan.outputs.ci) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Build
+        run: python -m runner build --toolchain ${{ matrix.toolchain }}
+      - name: Measure
+        run: python -m runner measure --toolchain ${{ matrix.toolchain }} --profile ci-4vcpu
+      - name: Summarize
+        if: always()
+        run: |
+          echo "### ${{ matrix.toolchain }}" >> "$GITHUB_STEP_SUMMARY"
+          python -m runner compare --profile ci-4vcpu >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v7
+        with:
+          name: results-ci-4vcpu-${{ matrix.toolchain }}
+          path: .work/results/ci-4vcpu/${{ matrix.toolchain }}.json
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Package builds for the small VM
+        if: env.RUN_SMALL_VM == 'true'
+        run: tar -C .work/builds -czf builds-${{ matrix.toolchain }}.tgz ${{ matrix.toolchain }}
+      - uses: actions/upload-artifact@v7
+        if: env.RUN_SMALL_VM == 'true'
+        with:
+          name: builds-${{ matrix.toolchain }}
+          path: builds-${{ matrix.toolchain }}.tgz
+          retention-days: 2
+
+  small-vm:
+    needs: [plan, bench]
+    if: ${{ !cancelled() && vars.SMALL_VM_ENABLED == 'true' && github.event_name != 'pull_request' && needs.plan.outputs.has_small == 'true' }}
+    runs-on: [self-hosted, small-vm]
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      # Two cores: one benchmark at a time.
+      max-parallel: 1
+      matrix: ${{ fromJSON(needs.plan.outputs.small) }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Python environment
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v8
+        id: builds
+        continue-on-error: true
+        with:
+          name: builds-${{ matrix.toolchain }}
+      - name: Measure
+        if: steps.builds.outcome == 'success'
+        run: |
+          mkdir -p .work/builds
+          tar -C .work/builds -xzf builds-${{ matrix.toolchain }}.tgz
+          .venv/bin/python -m runner measure --toolchain ${{ matrix.toolchain }} --profile small-vm
+      - uses: actions/upload-artifact@v7
+        if: steps.builds.outcome == 'success'
+        with:
+          name: results-small-vm-${{ matrix.toolchain }}
+          path: .work/results/small-vm/${{ matrix.toolchain }}.json
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Free disk
+        if: always()
+        run: |
+          docker image prune -af > /dev/null
+          rm -rf .work/builds builds-*.tgz
+
+  publish:
+    needs: [plan, bench, small-vm]
+    if: ${{ !cancelled() && github.event_name != 'pull_request' && needs.plan.outputs.has_ci == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-data
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: results-ci-4vcpu-*
+          merge-multiple: true
+          path: .work/results/ci-4vcpu
+      - uses: actions/download-artifact@v8
+        continue-on-error: true
+        with:
+          pattern: results-small-vm-*
+          merge-multiple: true
+          path: .work/results/small-vm
+      - name: Merge into data/
+        run: |
+          set -euo pipefail
+          for profile in ci-4vcpu small-vm; do
+            if ls .work/results/$profile/*.json > /dev/null 2>&1; then
+              echo "## $profile" >> "$GITHUB_STEP_SUMMARY"
+              python -m runner compare --profile $profile >> "$GITHUB_STEP_SUMMARY"
+              python -m runner merge --profile $profile
+            fi
+          done
+      - name: Commit results
+        run: |
+          set -euo pipefail
+          git add data
+          if git diff --cached --quiet; then
+            echo "No new results to publish."
+            exit 0
+          fi
+          git config user.name "bench-lang bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish benchmark results (${{ github.run_id }})"
+          git push
