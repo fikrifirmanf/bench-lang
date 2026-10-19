@@ -363,7 +363,7 @@
         "source": "github-tags",
         "repo": "ziglang/zig",
         "name_hint": "",
-        "tag_regex": "^(\\d+\\.\\d+\\.\\d+)$"
+        "tag_regex": "^(0\\.14\\.\\d+)$"
       }
     },
     {
@@ -379,7 +379,8 @@
         "repo": "ocaml/ocaml",
         "name_hint": "",
         "tag_regex": "^(\\d+\\.\\d+)\\.\\d+$"
-      }
+      },
+      "build": "opam install . -y && opam exec -- dune build && cp _build/default/app.exe out"
     }
   ]
 }

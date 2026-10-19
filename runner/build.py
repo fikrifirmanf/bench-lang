@@ -65,7 +65,9 @@ def _stage(env: Environment, toolchain: Toolchain, rename_to: str, job: Job, arc
         shutil.copytree(UPSTREAM_BENCH / "include" / env.include, target, dirs_exist_ok=True)
     source_dir = target / env.include_sub_dir if env.include_sub_dir else target
     source_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(UPSTREAM_BENCH / "algorithm" / job.problem / job.source, source_dir / rename_to)
+    # A few upstream files start with a UTF-8 byte-order mark, which javac rejects as an illegal character.
+    source = (UPSTREAM_BENCH / "algorithm" / job.problem / job.source).read_bytes()
+    (source_dir / rename_to).write_bytes(source.removeprefix(b"\xef\xbb\xbf"))
     (target / env.out_dir).mkdir(parents=True, exist_ok=True)
     _rewrite_tree(target, arch)
 

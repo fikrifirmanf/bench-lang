@@ -88,7 +88,8 @@ Add one entry to `bench/toolchains.json`:
   releases only. For example, the .NET entry matches `10.0.402` but not the `11.0` tag, which currently points at a
   release candidate. OCaml reads the compiler's GitHub tags because `ocaml/opam` publishes images for the next,
   unreleased minor. `kotlin-jvm` stays on JDK 21: upstream's Gradle 8.13 wrapper cannot run on newer JDKs, so widen
-  its regex once that wrapper is upgraded.
+  its regex once that wrapper is upgraded. `zig` stays on 0.14.x for the same kind of reason: upstream's `build.zig`
+uses the 0.14 build API, which 0.15 removed.
 
 ## Deploy
 
