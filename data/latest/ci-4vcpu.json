@@ -1,15 +1,15 @@
 {
   "id": "latest",
   "profile": "ci-4vcpu",
-  "source": "import",
-  "started_at": "2025-08-01T00:00:00+00:00",
+  "source": "runner",
+  "started_at": "2026-10-19T18:35:55+00:00",
   "upstream_commit": "ad18b203dd1769724f4eea94fc3ac1e99f6593e0",
   "machine": {
     "profile": "ci-4vcpu",
-    "cpu": "AMD EPYC 7763 64-Core Processor",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
     "cores": 4,
-    "memory_mb": 16384,
-    "os": "Ubuntu 22.04 (GitHub Actions)",
+    "memory_mb": 15706,
+    "os": "Linux-6.14.0-1012-aws-x86_64-with-glibc2.39",
     "arch": "amd64"
   },
   "rows": [
@@ -711,12 +711,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 138.0,
-      "stddev_ms": 4.5,
-      "user_ms": 127.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 7.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 128.605,
+      "stddev_ms": 1.434,
+      "user_ms": 125.247,
+      "sys_ms": 2.986,
+      "peak_mem_mb": 7.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -728,12 +728,12 @@
       "code": "4.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 121.0,
-      "stddev_ms": 2.1,
-      "user_ms": 110.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 5.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 110.093,
+      "stddev_ms": 1.146,
+      "user_ms": 108.305,
+      "sys_ms": 1.332,
+      "peak_mem_mb": 5.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -745,12 +745,12 @@
       "code": "5.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 126.0,
-      "stddev_ms": 2.0,
-      "user_ms": 120.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 5.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 112.699,
+      "stddev_ms": 0.52,
+      "user_ms": 109.522,
+      "sys_ms": 2.66,
+      "peak_mem_mb": 5.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -1586,12 +1586,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1443.0,
-      "stddev_ms": 32.0,
-      "user_ms": 1410.0,
-      "sys_ms": 13.0,
+      "time_ms": 1563.414,
+      "stddev_ms": 41.796,
+      "user_ms": 1543.965,
+      "sys_ms": 18.663,
       "peak_mem_mb": 49.8,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -1603,12 +1603,12 @@
       "code": "4.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1259.0,
-      "stddev_ms": 3.4,
-      "user_ms": 1240.0,
-      "sys_ms": 7.0,
-      "peak_mem_mb": 33.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 1250.502,
+      "stddev_ms": 11.197,
+      "user_ms": 1235.326,
+      "sys_ms": 14.667,
+      "peak_mem_mb": 33.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -1620,12 +1620,12 @@
       "code": "5.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1337.0,
-      "stddev_ms": 1.1,
-      "user_ms": 1317.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 33.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 1426.765,
+      "stddev_ms": 14.934,
+      "user_ms": 1414.156,
+      "sys_ms": 12.002,
+      "peak_mem_mb": 33.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "binarytrees",
@@ -2336,17 +2336,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "1-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "1.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 75.0,
-      "stddev_ms": 0.9,
-      "user_ms": 243.0,
-      "sys_ms": 20.0,
-      "peak_mem_mb": 3.5,
-      "measured_at": "2025-08-01"
+      "time_ms": 164.436,
+      "stddev_ms": 0.512,
+      "user_ms": 152.888,
+      "sys_ms": 10.986,
+      "peak_mem_mb": 3.4,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -2360,12 +2358,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 53.0,
-      "stddev_ms": 1.0,
-      "user_ms": 160.0,
-      "sys_ms": 13.0,
-      "peak_mem_mb": 4.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 59.287,
+      "stddev_ms": 0.806,
+      "user_ms": 209.748,
+      "sys_ms": 17.018,
+      "peak_mem_mb": 4.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -2377,12 +2375,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 70.0,
-      "stddev_ms": 0.3,
-      "user_ms": 60.0,
-      "sys_ms": 0.0,
+      "time_ms": 87.324,
+      "stddev_ms": 0.846,
+      "user_ms": 83.571,
+      "sys_ms": 3.34,
       "peak_mem_mb": 4.0,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -2394,12 +2392,12 @@
       "code": "4.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 116.0,
-      "stddev_ms": 2.5,
-      "user_ms": 110.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.1,
-      "measured_at": "2025-08-01"
+      "time_ms": 174.939,
+      "stddev_ms": 0.759,
+      "user_ms": 173.331,
+      "sys_ms": 1.332,
+      "peak_mem_mb": 3.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -2408,17 +2406,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "5-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "5.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 53.0,
-      "stddev_ms": 3.2,
-      "user_ms": 160.0,
-      "sys_ms": 13.0,
-      "peak_mem_mb": 3.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 103.657,
+      "stddev_ms": 0.464,
+      "user_ms": 93.857,
+      "sys_ms": 9.317,
+      "peak_mem_mb": 3.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3061,17 +3057,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "1-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "1.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 975.0,
-      "stddev_ms": 1.4,
-      "user_ms": 3630.0,
-      "sys_ms": 197.0,
-      "peak_mem_mb": 7.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 2469.048,
+      "stddev_ms": 5.846,
+      "user_ms": 2425.292,
+      "sys_ms": 42.668,
+      "peak_mem_mb": 6.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3085,12 +3079,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 540.0,
-      "stddev_ms": 40.0,
-      "user_ms": 2037.0,
-      "sys_ms": 60.0,
-      "peak_mem_mb": 8.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 749.12,
+      "stddev_ms": 38.458,
+      "user_ms": 2913.594,
+      "sys_ms": 56.48,
+      "peak_mem_mb": 9.0,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3102,12 +3096,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1139.0,
-      "stddev_ms": 4.6,
-      "user_ms": 1100.0,
-      "sys_ms": 27.0,
-      "peak_mem_mb": 9.3,
-      "measured_at": "2025-08-01"
+      "time_ms": 1554.053,
+      "stddev_ms": 11.569,
+      "user_ms": 1525.041,
+      "sys_ms": 28.324,
+      "peak_mem_mb": 9.4,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3119,12 +3113,12 @@
       "code": "4.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1934.0,
-      "stddev_ms": 7.8,
-      "user_ms": 1923.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 6.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 2872.207,
+      "stddev_ms": 5.423,
+      "user_ms": 2868.102,
+      "sys_ms": 3.334,
+      "peak_mem_mb": 7.0,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3133,17 +3127,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "5-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "5.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 650.0,
-      "stddev_ms": 108.0,
-      "user_ms": 2473.0,
-      "sys_ms": 67.0,
-      "peak_mem_mb": 5.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 1533.686,
+      "stddev_ms": 10.421,
+      "user_ms": 1496.412,
+      "sys_ms": 36.663,
+      "peak_mem_mb": 5.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "coro-prime-sieve",
@@ -3537,12 +3529,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 34.0,
-      "stddev_ms": 1.6,
-      "user_ms": 23.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 28.998,
+      "stddev_ms": 0.176,
+      "user_ms": 26.581,
+      "sys_ms": 1.981,
+      "peak_mem_mb": 2.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "edigits",
@@ -3554,12 +3546,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 77.0,
-      "stddev_ms": 1.4,
-      "user_ms": 70.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 30.001,
+      "stddev_ms": 0.229,
+      "user_ms": 29.312,
+      "sys_ms": 0.342,
+      "peak_mem_mb": 3.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "edigits",
@@ -3936,12 +3928,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 121.0,
-      "stddev_ms": 3.5,
-      "user_ms": 113.0,
-      "sys_ms": 0.0,
+      "time_ms": 107.982,
+      "stddev_ms": 0.518,
+      "user_ms": 105.794,
+      "sys_ms": 1.665,
       "peak_mem_mb": 3.6,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "edigits",
@@ -3953,12 +3945,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 422.0,
-      "stddev_ms": 3.6,
-      "user_ms": 413.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 109.234,
+      "stddev_ms": 0.191,
+      "user_ms": 106.426,
+      "sys_ms": 2.335,
+      "peak_mem_mb": 4.5,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "edigits",
@@ -4418,12 +4410,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 84.0,
-      "stddev_ms": 0.3,
-      "user_ms": 290.0,
-      "sys_ms": 0.0,
+      "time_ms": 76.759,
+      "stddev_ms": 0.394,
+      "user_ms": 286.338,
+      "sys_ms": 0.998,
       "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4435,12 +4427,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 224.0,
-      "stddev_ms": 3.0,
-      "user_ms": 217.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 177.479,
+      "stddev_ms": 0.773,
+      "user_ms": 176.339,
+      "sys_ms": 0.663,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4454,12 +4446,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 195.0,
-      "stddev_ms": 0.4,
-      "user_ms": 183.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 171.316,
+      "stddev_ms": 0.273,
+      "user_ms": 169.804,
+      "sys_ms": 0.999,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4474,12 +4466,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 60.0,
-      "stddev_ms": 1.6,
-      "user_ms": 200.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 54.995,
+      "stddev_ms": 0.797,
+      "user_ms": 202.936,
+      "sys_ms": 2.979,
+      "peak_mem_mb": 2.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4493,12 +4485,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 125.0,
-      "stddev_ms": 0.6,
-      "user_ms": 120.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 97.538,
+      "stddev_ms": 0.694,
+      "user_ms": 96.408,
+      "sys_ms": 0.662,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4513,12 +4505,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 38.0,
-      "stddev_ms": 0.1,
-      "user_ms": 127.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 30.701,
+      "stddev_ms": 0.739,
+      "user_ms": 108.925,
+      "sys_ms": 4.261,
+      "peak_mem_mb": 2.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -4532,12 +4524,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 52.0,
-      "stddev_ms": 1.3,
-      "user_ms": 170.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "time_ms": 50.087,
+      "stddev_ms": 0.147,
+      "user_ms": 186.099,
+      "sys_ms": 1.994,
+      "peak_mem_mb": 2.0,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5069,12 +5061,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 955.0,
-      "stddev_ms": 4.2,
-      "user_ms": 3670.0,
-      "sys_ms": 0.0,
+      "time_ms": 890.263,
+      "stddev_ms": 3.616,
+      "user_ms": 3452.436,
+      "sys_ms": 2.325,
       "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5086,12 +5078,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 2700.0,
-      "stddev_ms": 26.0,
-      "user_ms": 2690.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 2078.301,
+      "stddev_ms": 2.155,
+      "user_ms": 2076.6,
+      "sys_ms": 0.999,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5105,12 +5097,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 2365.0,
-      "stddev_ms": 0.5,
-      "user_ms": 2357.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 2079.783,
+      "stddev_ms": 0.969,
+      "user_ms": 2078.541,
+      "sys_ms": 0.666,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5125,12 +5117,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 667.0,
-      "stddev_ms": 5.0,
-      "user_ms": 2540.0,
-      "sys_ms": 0.0,
+      "time_ms": 636.008,
+      "stddev_ms": 2.025,
+      "user_ms": 2470.576,
+      "sys_ms": 3.652,
       "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5144,12 +5136,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 1497.0,
-      "stddev_ms": 2.0,
-      "user_ms": 1490.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 1158.049,
+      "stddev_ms": 1.066,
+      "user_ms": 1156.818,
+      "sys_ms": 0.666,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5164,12 +5156,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 413.0,
-      "stddev_ms": 0.7,
-      "user_ms": 1587.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "time_ms": 347.952,
+      "stddev_ms": 7.43,
+      "user_ms": 1308.576,
+      "sys_ms": 2.975,
+      "peak_mem_mb": 2.0,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5183,12 +5175,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 558.0,
-      "stddev_ms": 2.0,
-      "user_ms": 2130.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 598.892,
+      "stddev_ms": 8.903,
+      "user_ms": 2316.22,
+      "sys_ms": 4.979,
+      "peak_mem_mb": 2.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fannkuch-redux",
@@ -5885,12 +5877,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 22.0,
-      "stddev_ms": 0.4,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
+      "time_ms": 23.335,
+      "stddev_ms": 0.265,
+      "user_ms": 20.27,
+      "sys_ms": 2.667,
       "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -5902,12 +5894,12 @@
       "code": "1c.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 19.0,
-      "stddev_ms": 0.5,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 20.019,
+      "stddev_ms": 0.28,
+      "user_ms": 17.305,
+      "sys_ms": 2.298,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -5921,12 +5913,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 16.0,
-      "stddev_ms": 0.7,
-      "user_ms": 27.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 13.434,
+      "stddev_ms": 0.428,
+      "user_ms": 36.65,
+      "sys_ms": 3.595,
+      "peak_mem_mb": 3.3,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -5940,12 +5932,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 15.0,
-      "stddev_ms": 0.3,
-      "user_ms": 23.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 12.059,
+      "stddev_ms": 0.193,
+      "user_ms": 28.363,
+      "sys_ms": 5.737,
+      "peak_mem_mb": 3.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -5957,12 +5949,12 @@
       "code": "6.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 11.0,
-      "stddev_ms": 1.0,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 11.882,
+      "stddev_ms": 0.02,
+      "user_ms": 9.111,
+      "sys_ms": 2.602,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -6638,12 +6630,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 197.0,
-      "stddev_ms": 1.0,
-      "user_ms": 190.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 228.669,
+      "stddev_ms": 2.86,
+      "user_ms": 197.462,
+      "sys_ms": 18.662,
+      "peak_mem_mb": 1.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -6655,12 +6647,12 @@
       "code": "1c.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 164.0,
-      "stddev_ms": 0.4,
-      "user_ms": 157.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 192.349,
+      "stddev_ms": 2.94,
+      "user_ms": 161.318,
+      "sys_ms": 18.72,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -6674,12 +6666,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 92.0,
-      "stddev_ms": 1.4,
-      "user_ms": 287.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 3.2,
-      "measured_at": "2025-08-01"
+      "time_ms": 115.216,
+      "stddev_ms": 0.509,
+      "user_ms": 344.049,
+      "sys_ms": 23.455,
+      "peak_mem_mb": 3.3,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -6693,12 +6685,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 89.0,
-      "stddev_ms": 0.8,
-      "user_ms": 250.0,
-      "sys_ms": 0.0,
+      "time_ms": 104.934,
+      "stddev_ms": 0.414,
+      "user_ms": 285.994,
+      "sys_ms": 21.277,
       "peak_mem_mb": 3.2,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -6710,12 +6702,12 @@
       "code": "6.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 88.0,
-      "stddev_ms": 2.0,
-      "user_ms": 80.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 117.703,
+      "stddev_ms": 0.457,
+      "user_ms": 92.158,
+      "sys_ms": 14.686,
+      "peak_mem_mb": 1.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "fasta",
@@ -7547,29 +7539,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1.2,
-      "stddev_ms": 0.1,
-      "user_ms": 0.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "helloworld",
-      "input": "QwQ",
-      "input_index": 0,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "1.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 1.2,
-      "stddev_ms": 0.1,
-      "user_ms": 0.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 1.257,
+      "stddev_ms": 0.09,
+      "user_ms": 0.618,
+      "sys_ms": 0.329,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "helloworld",
@@ -7985,13 +7960,13 @@
       "version": "1.88.0",
       "code": "1-http2.rs",
       "flags": [],
-      "status": "ok",
-      "time_ms": 220.0,
-      "stddev_ms": 96.0,
-      "user_ms": 590.0,
-      "sys_ms": 173.0,
-      "peak_mem_mb": 24.1,
-      "measured_at": "2025-08-01"
+      "status": "timeout",
+      "time_ms": null,
+      "stddev_ms": null,
+      "user_ms": null,
+      "sys_ms": null,
+      "peak_mem_mb": null,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8000,17 +7975,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "1-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "1.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 44.0,
-      "stddev_ms": 5.0,
-      "user_ms": 20.0,
-      "sys_ms": 67.0,
-      "peak_mem_mb": 19.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 78.819,
+      "stddev_ms": 6.066,
+      "user_ms": 12.107,
+      "sys_ms": 21.792,
+      "peak_mem_mb": 13.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8022,12 +7995,12 @@
       "code": "2-http2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 223.0,
-      "stddev_ms": 41.0,
-      "user_ms": 600.0,
-      "sys_ms": 173.0,
-      "peak_mem_mb": 25.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 381.98,
+      "stddev_ms": 119.62,
+      "user_ms": 265.953,
+      "sys_ms": 69.053,
+      "peak_mem_mb": 25.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8036,17 +8009,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "2-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "2.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 82.0,
-      "stddev_ms": 6.1,
-      "user_ms": 37.0,
-      "sys_ms": 160.0,
-      "peak_mem_mb": 22.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 170.653,
+      "stddev_ms": 9.794,
+      "user_ms": 29.066,
+      "sys_ms": 73.498,
+      "peak_mem_mb": 23.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8426,13 +8397,13 @@
       "version": "1.88.0",
       "code": "1-http2.rs",
       "flags": [],
-      "status": "ok",
-      "time_ms": 394.0,
-      "stddev_ms": 30.0,
-      "user_ms": 793.0,
-      "sys_ms": 547.0,
-      "peak_mem_mb": 60.1,
-      "measured_at": "2025-08-01"
+      "status": "timeout",
+      "time_ms": null,
+      "stddev_ms": null,
+      "user_ms": null,
+      "sys_ms": null,
+      "peak_mem_mb": null,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8441,17 +8412,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "1-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "1.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 219.0,
-      "stddev_ms": 191.0,
-      "user_ms": 1827.0,
-      "sys_ms": 2833.0,
-      "peak_mem_mb": 80.3,
-      "measured_at": "2025-08-01"
+      "time_ms": 187.708,
+      "stddev_ms": 28.721,
+      "user_ms": 50.138,
+      "sys_ms": 67.951,
+      "peak_mem_mb": 26.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8463,12 +8432,12 @@
       "code": "2-http2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 284.0,
-      "stddev_ms": 64.0,
-      "user_ms": 633.0,
-      "sys_ms": 310.0,
-      "peak_mem_mb": 50.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 593.936,
+      "stddev_ms": 179.092,
+      "user_ms": 376.553,
+      "sys_ms": 143.39,
+      "peak_mem_mb": 64.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8477,17 +8446,15 @@
       "lang": "rust",
       "compiler": "rustc",
       "version": "1.88.0",
-      "code": "2-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
+      "code": "2.rs",
+      "flags": [],
       "status": "ok",
-      "time_ms": 349.0,
-      "stddev_ms": 10.0,
-      "user_ms": 240.0,
-      "sys_ms": 837.0,
-      "peak_mem_mb": 78.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 573.446,
+      "stddev_ms": 92.936,
+      "user_ms": 120.892,
+      "sys_ms": 326.444,
+      "peak_mem_mb": 97.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "http-server",
@@ -8849,12 +8816,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 101.0,
-      "stddev_ms": 3.0,
-      "user_ms": 60.0,
-      "sys_ms": 23.0,
-      "peak_mem_mb": 67.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 84.325,
+      "stddev_ms": 0.474,
+      "user_ms": 59.884,
+      "sys_ms": 23.98,
+      "peak_mem_mb": 67.3,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -8866,12 +8833,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 61.0,
-      "stddev_ms": 1.6,
-      "user_ms": 40.0,
-      "sys_ms": 7.0,
-      "peak_mem_mb": 33.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 53.776,
+      "stddev_ms": 0.411,
+      "user_ms": 43.467,
+      "sys_ms": 9.952,
+      "peak_mem_mb": 33.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -8883,12 +8850,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 60.0,
-      "stddev_ms": 1.1,
-      "user_ms": 40.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 32.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 54.827,
+      "stddev_ms": 0.287,
+      "user_ms": 38.275,
+      "sys_ms": 16.305,
+      "peak_mem_mb": 31.9,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -8902,12 +8869,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 33.0,
-      "stddev_ms": 0.8,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 7.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 26.437,
+      "stddev_ms": 0.316,
+      "user_ms": 21.58,
+      "sys_ms": 4.393,
+      "peak_mem_mb": 7.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -8921,12 +8888,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 29.0,
-      "stddev_ms": 1.5,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 9.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 25.945,
+      "stddev_ms": 0.059,
+      "user_ms": 21.888,
+      "sys_ms": 3.641,
+      "peak_mem_mb": 10.0,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9231,12 +9198,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 679.0,
-      "stddev_ms": 0.6,
-      "user_ms": 443.0,
-      "sys_ms": 227.0,
-      "peak_mem_mb": 551.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 592.626,
+      "stddev_ms": 1.911,
+      "user_ms": 397.836,
+      "sys_ms": 194.383,
+      "peak_mem_mb": 550.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9248,12 +9215,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 392.0,
-      "stddev_ms": 6.9,
-      "user_ms": 290.0,
-      "sys_ms": 87.0,
-      "peak_mem_mb": 238.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 341.754,
+      "stddev_ms": 0.133,
+      "user_ms": 257.87,
+      "sys_ms": 83.303,
+      "peak_mem_mb": 237.4,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9265,12 +9232,12 @@
       "code": "3.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 403.0,
-      "stddev_ms": 5.1,
-      "user_ms": 307.0,
-      "sys_ms": 80.0,
-      "peak_mem_mb": 237.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 351.965,
+      "stddev_ms": 1.882,
+      "user_ms": 267.979,
+      "sys_ms": 83.338,
+      "peak_mem_mb": 237.4,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9284,12 +9251,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 262.0,
-      "stddev_ms": 5.4,
-      "user_ms": 210.0,
-      "sys_ms": 37.0,
-      "peak_mem_mb": 54.5,
-      "measured_at": "2025-08-01"
+      "time_ms": 236.669,
+      "stddev_ms": 1.952,
+      "user_ms": 181.203,
+      "sys_ms": 54.955,
+      "peak_mem_mb": 54.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9303,12 +9270,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 216.0,
-      "stddev_ms": 2.9,
-      "user_ms": 190.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 53.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 195.662,
+      "stddev_ms": 0.745,
+      "user_ms": 178.373,
+      "sys_ms": 17.016,
+      "peak_mem_mb": 52.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "json-serde",
@@ -9662,12 +9629,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 29.0,
-      "stddev_ms": 2.8,
-      "user_ms": 60.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 15.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 33.628,
+      "stddev_ms": 4.332,
+      "user_ms": 91.565,
+      "sys_ms": 8.678,
+      "peak_mem_mb": 15.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "knucleotide",
@@ -9679,12 +9646,12 @@
       "code": "8.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 55.0,
-      "stddev_ms": 2.1,
-      "user_ms": 40.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 11.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 51.687,
+      "stddev_ms": 0.637,
+      "user_ms": 44.597,
+      "sys_ms": 6.653,
+      "peak_mem_mb": 11.5,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "knucleotide",
@@ -10074,12 +10041,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 219.0,
-      "stddev_ms": 11.0,
-      "user_ms": 633.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 28.1,
-      "measured_at": "2025-08-01"
+      "time_ms": 229.625,
+      "stddev_ms": 10.431,
+      "user_ms": 702.076,
+      "sys_ms": 22.905,
+      "peak_mem_mb": 27.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "knucleotide",
@@ -10091,12 +10058,12 @@
       "code": "8.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 411.0,
-      "stddev_ms": 1.3,
-      "user_ms": 390.0,
-      "sys_ms": 3.0,
-      "peak_mem_mb": 23.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 405.67,
+      "stddev_ms": 16.757,
+      "user_ms": 391.125,
+      "sys_ms": 13.995,
+      "peak_mem_mb": 22.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "knucleotide",
@@ -10849,12 +10816,12 @@
       "code": "0-unsafe.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 24.0,
-      "stddev_ms": 0.7,
-      "user_ms": 17.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 23.019,
+      "stddev_ms": 0.773,
+      "user_ms": 21.548,
+      "sys_ms": 0.988,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -10866,12 +10833,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 31.0,
-      "stddev_ms": 1.7,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 30.212,
+      "stddev_ms": 1.861,
+      "user_ms": 28.798,
+      "sys_ms": 0.993,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -11671,12 +11638,12 @@
       "code": "0-unsafe.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 37.0,
-      "stddev_ms": 4.5,
-      "user_ms": 27.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 33.931,
+      "stddev_ms": 5.465,
+      "user_ms": 32.893,
+      "sys_ms": 0.668,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -11688,12 +11655,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 51.0,
-      "stddev_ms": 3.1,
-      "user_ms": 43.0,
-      "sys_ms": 0.0,
+      "time_ms": 46.848,
+      "stddev_ms": 3.855,
+      "user_ms": 44.632,
+      "sys_ms": 1.663,
       "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -12491,12 +12458,12 @@
       "code": "0-unsafe.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 133.0,
-      "stddev_ms": 9.5,
-      "user_ms": 123.0,
-      "sys_ms": 0.0,
+      "time_ms": 140.201,
+      "stddev_ms": 10.681,
+      "user_ms": 139.223,
+      "sys_ms": 0.666,
       "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -12508,12 +12475,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 203.0,
-      "stddev_ms": 10.0,
-      "user_ms": 193.0,
-      "sys_ms": 0.0,
+      "time_ms": 189.905,
+      "stddev_ms": 8.891,
+      "user_ms": 188.461,
+      "sys_ms": 0.997,
       "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "lru",
@@ -13276,29 +13243,12 @@
       "code": "8.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 14.0,
-      "stddev_ms": 0.1,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
+      "time_ms": 16.702,
+      "stddev_ms": 0.972,
+      "user_ms": 15.303,
+      "sys_ms": 0.997,
       "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "mandelbrot",
-      "input": "1000",
-      "input_index": 0,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "9.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 13.0,
-      "stddev_ms": 0.4,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "mandelbrot",
@@ -13971,29 +13921,12 @@
       "code": "8.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 292.0,
-      "stddev_ms": 0.8,
-      "user_ms": 280.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 4.8,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "mandelbrot",
-      "input": "5000",
-      "input_index": 1,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "9.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 246.0,
-      "stddev_ms": 0.5,
-      "user_ms": 240.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 4.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 351.277,
+      "stddev_ms": 0.466,
+      "user_ms": 349.499,
+      "sys_ms": 1.332,
+      "peak_mem_mb": 4.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "mandelbrot",
@@ -14699,12 +14632,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 160.0,
-      "stddev_ms": 6.9,
-      "user_ms": 150.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 9.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 146.641,
+      "stddev_ms": 0.424,
+      "user_ms": 142.556,
+      "sys_ms": 3.663,
+      "peak_mem_mb": 9.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "merkletrees",
@@ -15423,12 +15356,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 709.0,
-      "stddev_ms": 8.0,
-      "user_ms": 690.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 33.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 728.874,
+      "stddev_ms": 4.063,
+      "user_ms": 716.554,
+      "sys_ms": 11.664,
+      "peak_mem_mb": 33.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "merkletrees",
@@ -16620,12 +16553,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 25.0,
-      "stddev_ms": 0.5,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 23.068,
+      "stddev_ms": 0.156,
+      "user_ms": 21.152,
+      "sys_ms": 1.303,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -16637,29 +16570,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 30.0,
-      "stddev_ms": 0.1,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
+      "time_ms": 24.164,
+      "stddev_ms": 0.031,
+      "user_ms": 23.507,
+      "sys_ms": 0.33,
       "peak_mem_mb": 1.6,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "nbody",
-      "input": "500000",
-      "input_index": 0,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "3.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 30.0,
-      "stddev_ms": 0.1,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -16673,12 +16589,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 18.0,
-      "stddev_ms": 0.1,
-      "user_ms": 10.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 19.803,
+      "stddev_ms": 0.308,
+      "user_ms": 18.364,
+      "sys_ms": 0.967,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -16692,12 +16608,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 24.0,
-      "stddev_ms": 0.5,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 25.476,
+      "stddev_ms": 0.292,
+      "user_ms": 24.455,
+      "sys_ms": 0.67,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -17979,12 +17895,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 229.0,
-      "stddev_ms": 0.6,
-      "user_ms": 220.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 215.547,
+      "stddev_ms": 1.809,
+      "user_ms": 214.089,
+      "sys_ms": 0.998,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -17996,29 +17912,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 279.0,
-      "stddev_ms": 0.3,
-      "user_ms": 270.0,
-      "sys_ms": 0.0,
+      "time_ms": 228.21,
+      "stddev_ms": 0.484,
+      "user_ms": 227.282,
+      "sys_ms": 0.667,
       "peak_mem_mb": 1.6,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "nbody",
-      "input": "5000000",
-      "input_index": 1,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "3.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 279.0,
-      "stddev_ms": 0.5,
-      "user_ms": 270.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -18032,12 +17931,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 163.0,
-      "stddev_ms": 0.3,
-      "user_ms": 157.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 181.074,
+      "stddev_ms": 0.074,
+      "user_ms": 180.071,
+      "sys_ms": 0.665,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -18051,12 +17950,12 @@
         "intrinsics"
       ],
       "status": "ok",
-      "time_ms": 218.0,
-      "stddev_ms": 1.1,
-      "user_ms": 210.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "time_ms": 249.886,
+      "stddev_ms": 8.035,
+      "user_ms": 248.137,
+      "sys_ms": 0.997,
+      "peak_mem_mb": 1.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nbody",
@@ -19030,12 +18929,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 64.0,
-      "stddev_ms": 1.9,
-      "user_ms": 57.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 11.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 114.205,
+      "stddev_ms": 0.664,
+      "user_ms": 107.282,
+      "sys_ms": 6.663,
+      "peak_mem_mb": 11.5,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nsieve",
@@ -19047,12 +18946,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 77.0,
-      "stddev_ms": 1.1,
-      "user_ms": 70.0,
-      "sys_ms": 0.0,
+      "time_ms": 78.817,
+      "stddev_ms": 0.205,
+      "user_ms": 76.472,
+      "sys_ms": 1.67,
       "peak_mem_mb": 2.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nsieve",
@@ -20005,12 +19904,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 305.0,
-      "stddev_ms": 4.3,
-      "user_ms": 287.0,
-      "sys_ms": 3.0,
-      "peak_mem_mb": 40.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 1018.219,
+      "stddev_ms": 30.006,
+      "user_ms": 989.664,
+      "sys_ms": 27.993,
+      "peak_mem_mb": 40.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nsieve",
@@ -20022,12 +19921,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 301.0,
-      "stddev_ms": 2.9,
-      "user_ms": 290.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 6.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 370.523,
+      "stddev_ms": 0.275,
+      "user_ms": 366.468,
+      "sys_ms": 3.667,
+      "peak_mem_mb": 6.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "nsieve",
@@ -20576,12 +20475,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 321.0,
-      "stddev_ms": 2.3,
-      "user_ms": 300.0,
-      "sys_ms": 10.0,
-      "peak_mem_mb": 2.4,
-      "measured_at": "2025-08-01"
+      "time_ms": 1150.441,
+      "stddev_ms": 4.784,
+      "user_ms": 1055.96,
+      "sys_ms": 86.792,
+      "peak_mem_mb": 2.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "pidigits",
@@ -20593,12 +20492,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 381.0,
-      "stddev_ms": 2.0,
-      "user_ms": 370.0,
-      "sys_ms": 0.0,
+      "time_ms": 281.979,
+      "stddev_ms": 0.978,
+      "user_ms": 280.573,
+      "sys_ms": 1.001,
       "peak_mem_mb": 2.4,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "pidigits",
@@ -21088,12 +20987,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1525.0,
-      "stddev_ms": 5.8,
-      "user_ms": 1310.0,
-      "sys_ms": 200.0,
-      "peak_mem_mb": 2.7,
-      "measured_at": "2025-08-01"
+      "time_ms": 6089.73,
+      "stddev_ms": 5.892,
+      "user_ms": 4997.834,
+      "sys_ms": 1043.235,
+      "peak_mem_mb": 3.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "pidigits",
@@ -21105,12 +21004,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1707.0,
-      "stddev_ms": 7.2,
-      "user_ms": 1613.0,
-      "sys_ms": 77.0,
-      "peak_mem_mb": 2.7,
-      "measured_at": "2025-08-01"
+      "time_ms": 1274.313,
+      "stddev_ms": 5.515,
+      "user_ms": 1224.393,
+      "sys_ms": 47.955,
+      "peak_mem_mb": 2.6,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "pidigits",
@@ -21589,12 +21488,12 @@
       "code": "7.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 49.0,
-      "stddev_ms": 0.5,
-      "user_ms": 40.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 11.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 51.525,
+      "stddev_ms": 0.364,
+      "user_ms": 46.446,
+      "sys_ms": 4.651,
+      "peak_mem_mb": 10.9,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "regex-redux",
@@ -21997,12 +21896,12 @@
       "code": "7.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 438.0,
-      "stddev_ms": 2.7,
-      "user_ms": 450.0,
-      "sys_ms": 13.0,
-      "peak_mem_mb": 78.6,
-      "measured_at": "2025-08-01"
+      "time_ms": 481.099,
+      "stddev_ms": 1.276,
+      "user_ms": 449.148,
+      "sys_ms": 31.322,
+      "peak_mem_mb": 76.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "regex-redux",
@@ -22238,13 +22137,13 @@
       "version": "1.88.0",
       "code": "0.rs",
       "flags": [],
-      "status": "ok",
-      "time_ms": 32.0,
-      "stddev_ms": 0.6,
-      "user_ms": 20.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
+      "status": "build-fail",
+      "time_ms": null,
+      "stddev_ms": null,
+      "user_ms": null,
+      "sys_ms": null,
+      "peak_mem_mb": null,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "secp256k1",
@@ -22256,12 +22155,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 359.0,
-      "stddev_ms": 4.6,
-      "user_ms": 350.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 336.62,
+      "stddev_ms": 0.415,
+      "user_ms": 335.481,
+      "sys_ms": 0.666,
+      "peak_mem_mb": 1.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "secp256k1",
@@ -22512,13 +22411,13 @@
       "version": "1.88.0",
       "code": "0.rs",
       "flags": [],
-      "status": "ok",
-      "time_ms": 119.0,
-      "stddev_ms": 3.0,
-      "user_ms": 110.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "status": "build-fail",
+      "time_ms": null,
+      "stddev_ms": null,
+      "user_ms": null,
+      "sys_ms": null,
+      "peak_mem_mb": null,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "secp256k1",
@@ -22530,12 +22429,12 @@
       "code": "1.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1429.0,
-      "stddev_ms": 26.0,
-      "user_ms": 1420.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "time_ms": 1350.234,
+      "stddev_ms": 9.79,
+      "user_ms": 1348.502,
+      "sys_ms": 1.0,
+      "peak_mem_mb": 1.8,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "secp256k1",
@@ -23419,12 +23318,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 135.0,
-      "stddev_ms": 0.3,
-      "user_ms": 493.0,
-      "sys_ms": 3.0,
+      "time_ms": 136.905,
+      "stddev_ms": 0.114,
+      "user_ms": 530.422,
+      "sys_ms": 5.335,
       "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -23436,12 +23335,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 269.0,
-      "stddev_ms": 0.8,
-      "user_ms": 260.0,
-      "sys_ms": 0.0,
+      "time_ms": 269.805,
+      "stddev_ms": 3.343,
+      "user_ms": 268.498,
+      "sys_ms": 0.997,
       "peak_mem_mb": 1.9,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -23455,12 +23354,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 35.0,
-      "stddev_ms": 0.4,
-      "user_ms": 110.0,
-      "sys_ms": 0.0,
+      "time_ms": 49.57,
+      "stddev_ms": 0.027,
+      "user_ms": 186.902,
+      "sys_ms": 2.662,
       "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -23472,48 +23371,12 @@
       "code": "7.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 130.0,
-      "stddev_ms": 7.3,
-      "user_ms": 123.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "2000",
-      "input_index": 0,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
-      "status": "ok",
-      "time_ms": 35.0,
-      "stddev_ms": 0.2,
-      "user_ms": 110.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "2000",
-      "input_index": 0,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 65.0,
-      "stddev_ms": 0.5,
-      "user_ms": 60.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 131.148,
+      "stddev_ms": 0.797,
+      "user_ms": 130.049,
+      "sys_ms": 0.666,
+      "peak_mem_mb": 1.7,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -24461,12 +24324,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 523.0,
-      "stddev_ms": 1.6,
-      "user_ms": 2023.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.3,
-      "measured_at": "2025-08-01"
+      "time_ms": 561.21,
+      "stddev_ms": 2.061,
+      "user_ms": 2200.598,
+      "sys_ms": 7.639,
+      "peak_mem_mb": 2.1,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -24478,12 +24341,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1068.0,
-      "stddev_ms": 0.2,
-      "user_ms": 1060.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 1063.213,
+      "stddev_ms": 15.204,
+      "user_ms": 1061.687,
+      "sys_ms": 0.999,
+      "peak_mem_mb": 1.9,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -24497,12 +24360,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 127.0,
-      "stddev_ms": 0.2,
-      "user_ms": 463.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.1,
-      "measured_at": "2025-08-01"
+      "time_ms": 189.37,
+      "stddev_ms": 0.242,
+      "user_ms": 737.233,
+      "sys_ms": 7.321,
+      "peak_mem_mb": 2.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -24514,48 +24377,12 @@
       "code": "7.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 496.0,
-      "stddev_ms": 4.5,
-      "user_ms": 490.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 1.8,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "4000",
-      "input_index": 1,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
-      "status": "ok",
-      "time_ms": 127.0,
-      "stddev_ms": 0.4,
-      "user_ms": 470.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.3,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "4000",
-      "input_index": 1,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 251.0,
-      "stddev_ms": 0.9,
-      "user_ms": 240.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 518.879,
+      "stddev_ms": 1.768,
+      "user_ms": 517.04,
+      "sys_ms": 1.331,
+      "peak_mem_mb": 1.9,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -25503,12 +25330,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 2079.0,
-      "stddev_ms": 5.2,
-      "user_ms": 8167.0,
-      "sys_ms": 3.0,
+      "time_ms": 2204.399,
+      "stddev_ms": 1.083,
+      "user_ms": 8708.674,
+      "sys_ms": 11.299,
       "peak_mem_mb": 2.4,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -25520,12 +25347,12 @@
       "code": "2.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 4264.0,
-      "stddev_ms": 2.5,
-      "user_ms": 4253.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
+      "time_ms": 4268.609,
+      "stddev_ms": 48.414,
+      "user_ms": 4267.124,
+      "sys_ms": 0.666,
+      "peak_mem_mb": 1.9,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -25539,12 +25366,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 492.0,
-      "stddev_ms": 0.6,
-      "user_ms": 1907.0,
-      "sys_ms": 3.0,
-      "peak_mem_mb": 2.3,
-      "measured_at": "2025-08-01"
+      "time_ms": 750.976,
+      "stddev_ms": 0.351,
+      "user_ms": 2961.735,
+      "sys_ms": 8.643,
+      "peak_mem_mb": 2.2,
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
@@ -25556,48 +25383,12 @@
       "code": "7.rs",
       "flags": [],
       "status": "ok",
-      "time_ms": 1964.0,
-      "stddev_ms": 9.9,
-      "user_ms": 1957.0,
+      "time_ms": 2063.967,
+      "stddev_ms": 3.147,
+      "user_ms": 2063.256,
       "sys_ms": 0.0,
       "peak_mem_mb": 2.0,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "8000",
-      "input_index": 2,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8-m.rs",
-      "flags": [
-        "multi-thread"
-      ],
-      "status": "ok",
-      "time_ms": 493.0,
-      "stddev_ms": 0.0,
-      "user_ms": 1917.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.4,
-      "measured_at": "2025-08-01"
-    },
-    {
-      "problem": "spectral-norm",
-      "input": "8000",
-      "input_index": 2,
-      "lang": "rust",
-      "compiler": "rustc",
-      "version": "1.90.0-nightly",
-      "code": "8.rs",
-      "flags": [],
-      "status": "ok",
-      "time_ms": 994.0,
-      "stddev_ms": 2.5,
-      "user_ms": 983.0,
-      "sys_ms": 0.0,
-      "peak_mem_mb": 2.4,
-      "measured_at": "2025-08-01"
+      "measured_at": "2026-10-19"
     },
     {
       "problem": "spectral-norm",
