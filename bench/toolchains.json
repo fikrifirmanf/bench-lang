@@ -92,8 +92,8 @@
       "image": "rust:{version}-slim-bookworm",
       "version_command": "rustc -V",
       "env": {
-        "CC": "gcc",
-        "CXX": "g++"
+        "CC": "clang",
+        "CXX": "clang++"
       },
       "setup": [
         "rm -f rust-toolchain.toml"
@@ -106,7 +106,10 @@
         "repo": "library/rust",
         "name_hint": "slim-bookworm",
         "tag_regex": "^(\\d+\\.\\d+\\.\\d+)-slim-bookworm$"
-      }
+      },
+      "image_setup": [
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends clang lld > /dev/null"
+      ]
     },
     {
       "id": "c-gcc",
@@ -197,7 +200,7 @@
         "source": "dockerhub",
         "repo": "library/eclipse-temurin",
         "name_hint": "-jdk",
-        "tag_regex": "^(\\d+)-jdk$"
+        "tag_regex": "^(21)-jdk$"
       }
     },
     {
@@ -372,10 +375,10 @@
       "image": "ocaml/opam:debian-12-ocaml-{version}",
       "version_command": "opam exec -- ocaml -version",
       "check": {
-        "source": "dockerhub",
-        "repo": "ocaml/opam",
-        "name_hint": "debian-12-ocaml-",
-        "tag_regex": "^debian-12-ocaml-(\\d+\\.\\d+)$"
+        "source": "github-tags",
+        "repo": "ocaml/ocaml",
+        "name_hint": "",
+        "tag_regex": "^(\\d+\\.\\d+)\\.\\d+$"
       }
     }
   ]

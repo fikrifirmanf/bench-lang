@@ -70,6 +70,15 @@ def _stage(env: Environment, toolchain: Toolchain, rename_to: str, job: Job, arc
     _rewrite_tree(target, arch)
 
 
+def _share(root: Path) -> None:
+    """Some images build as a non-root user (ocaml/opam runs as `opam`); on Linux that user cannot
+    write into folders the host user created, so the staged tree is opened to everyone."""
+    for path in [root, *root.rglob("*")]:
+        mode = path.stat().st_mode
+        extra = 0o777 if path.is_dir() else (0o666 | (0o111 if mode & 0o100 else 0))
+        path.chmod(mode | extra)
+
+
 def _jobs(toolchain: Toolchain, problems: set[str] | None) -> tuple[Environment, str, list[Job]]:
     lang_file = load_lang_file(toolchain)
     env = select_environment(lang_file, toolchain)
@@ -94,6 +103,7 @@ def build(toolchain: Toolchain, problems: set[str] | None = None, jobs: int = 1)
     root.mkdir(parents=True)
     for job in work:
         _stage(env, toolchain, rename_to, job, arch)
+    _share(root)
 
     image = toolchain.image_ref
     log.info("pulling %s", image)
@@ -128,6 +138,10 @@ def build(toolchain: Toolchain, problems: set[str] | None = None, jobs: int = 1)
             out = root / job.rel / env.out_dir
             ok = result.code == 0 and out.is_dir() and any(out.iterdir())
             log.info("%s %s/%s in %ss", "built" if ok else "FAILED", job.problem, job.source, elapsed // 1000)
+            if not ok:
+                # CI keeps only the console log, so the compiler's own message has to appear there.
+                tail = (result.stderr.strip() or result.stdout.strip()).splitlines()[-12:]
+                log.warning("%s/%s build output:\n    %s", job.problem, job.source, "\n    ".join(tail))
             return BuildEntry(
                 problem=job.problem,
                 source=job.source,

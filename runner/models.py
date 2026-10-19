@@ -119,6 +119,12 @@ class LangProblem(Loose):
     name: str
     source: list[str] = Field(default_factory=list)
 
+    # Upstream leaves `source:` empty for problems a language has no program for yet.
+    @field_validator("source", mode="before")
+    @classmethod
+    def _empty_source(cls, value: object) -> object:
+        return [] if value is None else value
+
 
 class Environment(Loose):
     compiler: str

@@ -86,7 +86,9 @@ Add one entry to `bench/toolchains.json`:
 - `build`, `run_cmd`, `env`, `setup` (per program) and `image_setup` (once per container) override or extend upstream.
 - `check` tells the version bot where to look: `dockerhub`, `mcr` or `github-tags`. Make `tag_regex` match stable
   releases only. For example, the .NET entry matches `10.0.402` but not the `11.0` tag, which currently points at a
-  release candidate.
+  release candidate. OCaml reads the compiler's GitHub tags because `ocaml/opam` publishes images for the next,
+  unreleased minor. `kotlin-jvm` stays on JDK 21: upstream's Gradle 8.13 wrapper cannot run on newer JDKs, so widen
+  its regex once that wrapper is upgraded.
 
 ## Deploy
 

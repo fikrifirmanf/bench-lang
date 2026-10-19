@@ -1,6 +1,6 @@
 from runner.importsite import parse_mb, parse_ms, parse_page
 from runner.merge import fold_latest
-from runner.models import Machine, ProblemSpec, ResultRow, Run, BenchInput, VersionCheck
+from runner.models import BenchInput, LangProblem, Machine, ProblemSpec, ResultRow, Run, VersionCheck
 from runner.stats import Sample, outputs_match, parse_flags, split_compiler, summarize
 from runner.versions import newest
 
@@ -40,6 +40,10 @@ def test_newest_picks_highest_stable_tag() -> None:
     tags = ["1.9.0-slim", "1.10.2-slim", "1.11.0rc1-slim", "latest", "1.10.2"]
     assert newest(check, tags) == "1.10.2"
     assert newest(check, ["latest"]) is None
+
+
+def test_lang_problem_accepts_empty_source() -> None:
+    assert LangProblem.model_validate({"name": "nbody", "source": None}).source == []
 
 
 def _row(lang: str, compiler: str, time_ms: float) -> ResultRow:
