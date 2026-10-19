@@ -107,6 +107,10 @@ Add one entry to `bench/toolchains.json`:
 languages), created with `runner import-site`. Languages without a toolchain entry keep those numbers, and the
 Versions page lists them as not automated yet.
 
+There is no database. Every run stays in `data/runs/<profile>/` and git keeps the full record. At build time the site
+replays those runs in order (the same fold as `runner merge`) to draw the "Over time" charts on language and problem
+pages; they appear once a profile has two runs.
+
 ## Status
 
 | part | state |
