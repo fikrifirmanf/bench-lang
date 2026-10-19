@@ -96,7 +96,8 @@
         "CXX": "clang++"
       },
       "setup": [
-        "rm -f rust-toolchain.toml"
+        "rm -f rust-toolchain.toml",
+        "cargo clean -q --release -p _app --target-dir /tmp/rs/target"
       ],
       "cache_dirs": [
         "/usr/local/cargo/registry"
