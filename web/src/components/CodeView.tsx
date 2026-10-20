@@ -23,7 +23,7 @@ export function CodeView({ problem, file, origin, onClose }: {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`/code/${problem}/${file}.html`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]) })
+    fetch(`/code/${problem}/${file}.txt`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]) })
       .then((res) => (res.ok ? res.text() : Promise.reject(new Error(`HTTP ${res.status}`))))
       .then((html) => setLoad({ state: "ready", html }))
       .catch((error: unknown) => {

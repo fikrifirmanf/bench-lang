@@ -1,10 +1,10 @@
 import { getSourceIndex, highlightSource } from "@/lib/sources";
 
-// One static HTML fragment per program (out/code/<problem>/<file>.html), fetched when a visitor opens its code,
-// so problem pages stay small.
+// One static HTML fragment per program (out/code/<problem>/<file>.txt), fetched when a visitor opens its code,
+// so problem pages stay small. Not ".html": Vercel serves .html files without the extension, so the URL would 404.
 export const dynamic = "force-static";
 
-const SUFFIX = ".html";
+const SUFFIX = ".txt";
 
 export function generateStaticParams() {
   return getSourceIndex().programs.map((p) => ({ problem: p.problem, file: `${p.file}${SUFFIX}` }));
