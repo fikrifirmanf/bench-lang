@@ -31,7 +31,6 @@ export default async function ProblemPage({ params }: Params) {
       profile: p.id,
       name: p.name,
       date: formatDate(p.run.started_at),
-      commit: p.run.upstream_commit,
       inputs: inputsOf(p.run.rows, slug),
       rows: p.run.rows.filter((r) => r.problem === slug),
     }))

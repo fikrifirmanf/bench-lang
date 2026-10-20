@@ -29,14 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="mx-auto flex max-w-[1240px] flex-wrap justify-between gap-3 px-4 pb-12 text-[15px] text-ink-soft sm:px-6">
           <span>
-            Programs and the original suite by{" "}
-            <a className="font-semibold underline" href="https://github.com/hanabi1224/Programming-Language-Benchmarks">
-              hanabi1224/Programming-Language-Benchmarks
-            </a>{" "}
-            (MIT). Logos from Devicon.
+            Benchmark programs by hanabi1224 (MIT). Logos from Devicon.
           </span>
-          <a className="font-semibold underline" href="https://github.com/hanabi1224/Programming-Language-Benchmarks/tree/main/bench/algorithm">
-            Contribute an implementation
+          <a className="font-semibold underline" href="https://github.com/fikrifirmanf/bench-lang">
+            Runner and site source
           </a>
         </footer>
       </body>

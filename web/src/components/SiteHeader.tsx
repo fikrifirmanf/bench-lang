@@ -39,7 +39,7 @@ export function SiteHeader() {
           })}
         </nav>
         <a
-          href="https://github.com/hanabi1224/Programming-Language-Benchmarks"
+          href="https://github.com/fikrifirmanf/bench-lang"
           className="ml-auto inline-flex h-11 items-center rounded-xl border-[2.5px] border-ink bg-ink px-4 font-semibold text-card md:ml-0"
         >
           <span className="sm:hidden">Source</span>

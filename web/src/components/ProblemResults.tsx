@@ -13,7 +13,6 @@ export interface ProblemDataset {
   profile: string;
   name: string;
   date: string;
-  commit: string | null;
   inputs: { index: number; input: string }[];
   rows: ResultRow[];
 }
@@ -26,8 +25,6 @@ const STATUS_TEXT: Record<Status, string> = {
   oom: "out of memory",
   "wrong-output": "wrong output",
 };
-
-const SOURCE_BASE = "https://github.com/hanabi1224/Programming-Language-Benchmarks/blob";
 
 export function ProblemResults({ problem, datasets }: { problem: string; datasets: ProblemDataset[] }) {
   const [profile, setProfile] = useState(datasets[0]?.profile ?? "");
@@ -48,7 +45,6 @@ export function ProblemResults({ problem, datasets }: { problem: string; dataset
   // Results span 1× to 100×+, so bars use a log scale: the fastest gets a stub, the slowest a full bar.
   const spread = Math.log(Math.max(slowest / best, 1.0001));
   const barWidth = (ms: number) => `${8 + 92 * (Math.log(ms / best) / spread)}%`;
-  const sourceUrl = (code: string) => `${SOURCE_BASE}/${data.commit ?? "main"}/bench/algorithm/${problem}/${code}`;
 
   const switchProfile = (id: string) => {
     setProfile(id);
@@ -147,9 +143,7 @@ export function ProblemResults({ problem, datasets }: { problem: string; dataset
                       </Link>
                     </td>
                     <td className="px-4 py-2">
-                      <a href={sourceUrl(r.code)} className="font-mono text-[15px] font-medium underline">
-                        {r.code}
-                      </a>
+                      <span className="font-mono text-[15px] font-medium">{r.code}</span>
                       {r.flags.length > 0 ? (
                         <span className="mt-1 flex flex-wrap gap-1">
                           {r.flags.map((f) => (

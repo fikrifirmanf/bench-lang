@@ -63,7 +63,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 cd web && pnpm install && pnpm dev                                 # http://localhost:3000
 ```
 
-`runner merge --profile local` publishes local results into `data/`. Don't commit that profile; it exists for testing.
+`runner merge --profile local` publishes local results into `data/`. Until CI publishes, the site shows that profile.
 
 ## Adding a language
 
@@ -120,9 +120,9 @@ machines. A full run is roughly 100â€“300 machine minutes; a version bump is 10â
 
 ## Data
 
-`data/latest/ci-4vcpu.json` starts as an import of upstream's last published run (Aug 1, 2025; 1,468 results, 28
-languages), created with `runner import-site`. Languages without a toolchain entry keep those numbers, and the
-Versions page lists them as not automated yet.
+The site currently publishes only the `local` profile (one run on an Apple M5 laptop). The earlier import of
+upstream's results was removed; `ci-4vcpu` fills in again with the first CI run. `runner import-site` can still bring
+upstream's numbers back.
 
 There is no database. Every run stays in `data/runs/<profile>/` and git keeps the full record. At build time the site
 replays those runs in order (the same fold as `runner merge`) to draw the "Over time" charts on language and problem

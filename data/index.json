@@ -3,7 +3,7 @@
     {
       "id": "ci-4vcpu",
       "name": "CI · 4 vCPU / 16 GB",
-      "latest_run": "2026-10-19-1841"
+      "latest_run": null
     },
     {
       "id": "small-vm",
@@ -18,25 +18,11 @@
   ],
   "runs": [
     {
-      "id": "2026-10-19-1841",
-      "profile": "ci-4vcpu",
-      "started_at": "2026-10-19T18:35:55+00:00",
-      "source": "runner",
-      "rows": 111
-    },
-    {
       "id": "2026-10-19-1827",
       "profile": "local",
       "started_at": "2026-10-19T17:15:23+00:00",
       "source": "runner",
       "rows": 354
-    },
-    {
-      "id": "2025-08-01-upstream",
-      "profile": "ci-4vcpu",
-      "started_at": "2025-08-01T00:00:00+00:00",
-      "source": "import",
-      "rows": 1468
     }
   ]
 }
