@@ -6,7 +6,8 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .models import ResultRow, Run, ToolchainFile
+from .config import load_lang_file, load_source_changes, load_toolchains, select_environment
+from .models import ResultRow, Run, SourceChanges, ToolchainFile
 
 THRESHOLD = 0.05
 
@@ -18,6 +19,35 @@ def changed_toolchains(base_file: Path, head_file: Path) -> list[str]:
         return [t.id for t in head]
     base = {t.id: t for t in ToolchainFile.model_validate_json(base_file.read_text()).toolchains}
     return [t.id for t in head if base.get(t.id) != t]
+
+
+def program_toolchains(changed_paths: list[str], base_sources: Path | None) -> list[str]:
+    """Ids whose programs, include overlay or sources.json entry are among the changed repository paths.
+
+    `base_sources` is the previous bench/programs/sources.json; without it a changed sources.json selects every
+    toolchain it mentions."""
+    paths = set(changed_paths)
+    head = load_source_changes()
+    base = (
+        SourceChanges.model_validate_json(base_sources.read_text())
+        if base_sources and base_sources.is_file() and base_sources.read_text().strip()
+        else SourceChanges()
+    )
+    sources_changed = "bench/programs/sources.json" in paths
+    ids: list[str] = []
+    for toolchain in load_toolchains():
+        config = toolchain.config
+        entry_changed = (head.add.get(config), head.drop.get(config)) != (base.add.get(config), base.drop.get(config))
+        if sources_changed and entry_changed:
+            ids.append(toolchain.id)
+            continue
+        lang_file = load_lang_file(toolchain)
+        programs = {f"bench/programs/{p.name}/{s}" for p in lang_file.problems for s in p.source}
+        include = select_environment(lang_file, toolchain).include
+        prefix = f"bench/programs/include/{include}/" if include else None
+        if paths & programs or (prefix and any(p.startswith(prefix) for p in paths)):
+            ids.append(toolchain.id)
+    return ids
 
 
 def matrix(ids: list[str]) -> str:

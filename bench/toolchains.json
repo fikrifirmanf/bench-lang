@@ -259,6 +259,9 @@
       "compiler": "php",
       "version": "8.2.29",
       "image": "php:{version}-cli-bookworm",
+      "image_setup": [
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends libgmp-dev > /dev/null && docker-php-ext-install gmp > /dev/null"
+      ],
       "version_command": "php --version",
       "run_cmd": "php -dzend_extension=opcache -dopcache.enable_cli=1 -dopcache.jit_buffer_size=256M app.php",
       "check": {
@@ -274,13 +277,16 @@
       "config": "bench_perl.yaml",
       "compiler": "perl",
       "version": "5.40.2",
-      "image": "perl:{version}-slim-bookworm",
+      "image": "perl:{version}-bookworm",
+      "image_setup": [
+        "cpanm -nq Math::GMP > /dev/null"
+      ],
       "version_command": "perl -e 'print $^V'",
       "check": {
         "source": "dockerhub",
         "repo": "library/perl",
-        "name_hint": "slim-bookworm",
-        "tag_regex": "^(5\\.\\d*[02468]\\.\\d+)-slim-bookworm$"
+        "name_hint": "bookworm",
+        "tag_regex": "^(5\\.\\d*[02468]\\.\\d+)-bookworm$"
       }
     },
     {
@@ -357,7 +363,7 @@
       "version": "0.14.1",
       "image": "debian:bookworm-slim",
       "image_setup": [
-        "apt-get update -qq && apt-get install -y -qq --no-install-recommends curl ca-certificates xz-utils >/dev/null && curl -fsSL https://ziglang.org/download/{version}/zig-$(uname -m)-linux-{version}.tar.xz | tar -xJ -C /opt && ln -sf /opt/zig-*/zig /usr/local/bin/zig"
+        "apt-get update -qq && apt-get install -y -qq --no-install-recommends curl ca-certificates xz-utils libpcre2-dev >/dev/null && curl -fsSL https://ziglang.org/download/{version}/zig-$(uname -m)-linux-{version}.tar.xz | tar -xJ -C /opt && ln -sf /opt/zig-*/zig /usr/local/bin/zig"
       ],
       "version_command": "zig version",
       "check": {
@@ -381,7 +387,10 @@
         "name_hint": "",
         "tag_regex": "^(\\d+\\.\\d+)\\.\\d+$"
       },
-      "build": "opam install . -y && opam exec -- dune build && cp _build/default/app.exe out"
+      "build": "opam install . -y && opam exec -- dune build --profile release && cp _build/default/app.exe out",
+      "image_setup": [
+        "sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends libgmp-dev pkg-config > /dev/null"
+      ]
     }
   ]
 }

@@ -10,7 +10,15 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from . import docker
-from .config import UPSTREAM_BENCH, WORK_DIR, load_bench_file, load_lang_file, select_environment, write_json
+from .config import (
+    WORK_DIR,
+    include_dirs,
+    load_bench_file,
+    load_lang_file,
+    select_environment,
+    source_path,
+    write_json,
+)
 from .models import BuildEntry, BuildManifest, Environment, Toolchain
 
 log = logging.getLogger(__name__)
@@ -18,7 +26,14 @@ log = logging.getLogger(__name__)
 BUILD_TIMEOUT_S = 1800
 X86 = {"amd64", "x86_64"}
 # Upstream tunes for x86 (broadwell). On other hosts those flags would not compile.
-ARCH_REWRITES = [("-march=broadwell", ""), ("broadwell", "native"), ("-a x86_64", ""), ("linux-x64", "linux-arm64")]
+ARCH_REWRITES = [
+    ("-march=broadwell", ""),
+    ("broadwell", "native"),
+    ("-a x86_64", ""),
+    ("linux-x64", "linux-arm64"),
+    # OCaml's dune file passes -fPIC to ocamlopt, which only the x86 backend accepts.
+    ("\n  -fPIC)", ")"),
+]
 
 
 def builds_dir(toolchain: Toolchain) -> Path:
@@ -61,12 +76,12 @@ class Job:
 
 def _stage(env: Environment, toolchain: Toolchain, rename_to: str, job: Job, arch: str) -> None:
     target = builds_dir(toolchain) / job.rel
-    if env.include:
-        shutil.copytree(UPSTREAM_BENCH / "include" / env.include, target, dirs_exist_ok=True)
+    for include in include_dirs(env.include) if env.include else []:
+        shutil.copytree(include, target, dirs_exist_ok=True)
     source_dir = target / env.include_sub_dir if env.include_sub_dir else target
     source_dir.mkdir(parents=True, exist_ok=True)
     # A few upstream files start with a UTF-8 byte-order mark, which javac rejects as an illegal character.
-    source = (UPSTREAM_BENCH / "algorithm" / job.problem / job.source).read_bytes()
+    source = source_path(job.problem, job.source).read_bytes()
     (source_dir / rename_to).write_bytes(source.removeprefix(b"\xef\xbb\xbf"))
     (target / env.out_dir).mkdir(parents=True, exist_ok=True)
     _rewrite_tree(target, arch)

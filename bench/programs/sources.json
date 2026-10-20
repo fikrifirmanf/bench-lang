@@ -1,0 +1,509 @@
+{
+  "add": {
+    "bench_javascript_bun.yaml": {
+      "pidigits": [
+        "3.js"
+      ],
+      "spectral-norm": [
+        "6.js"
+      ],
+      "fannkuch-redux": [
+        "1.js"
+      ],
+      "fasta": [
+        "1.js"
+      ],
+      "knucleotide": [
+        "1.js"
+      ],
+      "mandelbrot": [
+        "1.js"
+      ],
+      "nsieve": [
+        "1.js"
+      ],
+      "regex-redux": [
+        "1.js"
+      ],
+      "edigits": [
+        "2.js"
+      ]
+    },
+    "bench_c.yaml": {
+      "binarytrees": [
+        "1.c"
+      ],
+      "coro-prime-sieve": [
+        "1.c"
+      ],
+      "edigits": [
+        "1.c"
+      ],
+      "fannkuch-redux": [
+        "1.c"
+      ],
+      "fasta": [
+        "1.c"
+      ],
+      "http-server": [
+        "1.c"
+      ],
+      "json-serde": [
+        "1.c"
+      ],
+      "lru": [
+        "1.c"
+      ],
+      "mandelbrot": [
+        "2.c"
+      ],
+      "merkletrees": [
+        "1.c"
+      ],
+      "pidigits": [
+        "1.c"
+      ],
+      "regex-redux": [
+        "1.c"
+      ],
+      "secp256k1": [
+        "1.c"
+      ]
+    },
+    "bench_cpp.yaml": {
+      "binarytrees": [
+        "1.cpp"
+      ],
+      "coro-prime-sieve": [
+        "1.cpp"
+      ],
+      "edigits": [
+        "1.cpp"
+      ],
+      "fannkuch-redux": [
+        "1.cpp"
+      ],
+      "fasta": [
+        "1.cpp"
+      ],
+      "http-server": [
+        "1.cpp"
+      ],
+      "json-serde": [
+        "1.cpp"
+      ],
+      "knucleotide": [
+        "1.cpp"
+      ],
+      "lru": [
+        "1.cpp"
+      ],
+      "mandelbrot": [
+        "1.cpp"
+      ],
+      "merkletrees": [
+        "1.cpp"
+      ],
+      "pidigits": [
+        "1.cpp"
+      ],
+      "regex-redux": [
+        "1.cpp"
+      ],
+      "secp256k1": [
+        "1.cpp"
+      ],
+      "spectral-norm": [
+        "1.cpp"
+      ]
+    },
+    "bench_csharp.yaml": {
+      "fannkuch-redux": [
+        "9.cs"
+      ]
+    },
+    "bench_ruby.yaml": {
+      "http-server": [
+        "2.rb"
+      ],
+      "knucleotide": [
+        "1.rb"
+      ],
+      "regex-redux": [
+        "3-m.rb"
+      ],
+      "edigits": [
+        "1.rb"
+      ],
+      "fannkuch-redux": [
+        "1.rb"
+      ],
+      "mandelbrot": [
+        "1.rb"
+      ],
+      "secp256k1": [
+        "1.rb"
+      ]
+    },
+    "bench_nim.yaml": {
+      "edigits": [
+        "1.nim"
+      ],
+      "http-server": [
+        "1.nim"
+      ],
+      "json-serde": [
+        "2.nim"
+      ],
+      "pidigits": [
+        "1.nim"
+      ],
+      "fannkuch-redux": [
+        "1.nim"
+      ],
+      "knucleotide": [
+        "1.nim"
+      ],
+      "secp256k1": [
+        "1.nim"
+      ]
+    },
+    "bench_crystal.yaml": {
+      "json-serde": [
+        "1.cr"
+      ],
+      "regex-redux": [
+        "2.cr"
+      ],
+      "http-server": [
+        "2.cr"
+      ],
+      "knucleotide": [
+        "1.cr"
+      ],
+      "secp256k1": [
+        "1.cr"
+      ]
+    },
+    "bench_dart.yaml": {
+      "mandelbrot": [
+        "2.dart"
+      ],
+      "nsieve": [
+        "1.dart"
+      ],
+      "secp256k1": [
+        "1.dart"
+      ]
+    },
+    "bench_zig.yaml": {
+      "coro-prime-sieve": [
+        "2.zig"
+      ],
+      "json-serde": [
+        "2.zig"
+      ],
+      "http-server": [
+        "1.zig"
+      ],
+      "regex-redux": [
+        "1-ffi.zig"
+      ],
+      "secp256k1": [
+        "1.zig"
+      ]
+    },
+    "bench_ocaml.yaml": {
+      "coro-prime-sieve": [
+        "2.ml"
+      ],
+      "json-serde": [
+        "2.ml"
+      ],
+      "knucleotide": [
+        "1.ml"
+      ],
+      "mandelbrot": [
+        "6.ml"
+      ],
+      "edigits": [
+        "1.ml"
+      ],
+      "pidigits": [
+        "1.ml"
+      ],
+      "secp256k1": [
+        "1.ml"
+      ],
+      "http-server": [
+        "1.ml"
+      ]
+    },
+    "bench_java.yaml": {
+      "http-server": [
+        "1.java"
+      ],
+      "json-serde": [
+        "1.java"
+      ],
+      "lru": [
+        "1.java"
+      ],
+      "secp256k1": [
+        "1.java"
+      ]
+    },
+    "bench_go.yaml": {
+      "knucleotide": [
+        "1.go"
+      ],
+      "mandelbrot": [
+        "2.go"
+      ],
+      "secp256k1": [
+        "1.go"
+      ]
+    },
+    "bench_javascript.yaml": {
+      "fannkuch-redux": [
+        "1.js"
+      ],
+      "fasta": [
+        "1.js"
+      ],
+      "knucleotide": [
+        "1.js"
+      ],
+      "mandelbrot": [
+        "1.js"
+      ],
+      "nsieve": [
+        "1.js"
+      ],
+      "regex-redux": [
+        "1.js"
+      ],
+      "http-server": [
+        "2.js"
+      ]
+    },
+    "bench_typescript_deno.yaml": {
+      "coro-prime-sieve": [
+        "2.ts"
+      ],
+      "edigits": [
+        "1.ts"
+      ],
+      "fannkuch-redux": [
+        "1.ts"
+      ],
+      "knucleotide": [
+        "1.ts"
+      ],
+      "mandelbrot": [
+        "1.ts"
+      ],
+      "nsieve": [
+        "1.ts"
+      ],
+      "regex-redux": [
+        "1.ts"
+      ]
+    },
+    "bench_python.yaml": {
+      "fannkuch-redux": [
+        "1.py"
+      ],
+      "mandelbrot": [
+        "1.py"
+      ]
+    },
+    "bench_kotlin_jvm.yaml": {
+      "edigits": [
+        "1.kt"
+      ],
+      "fannkuch-redux": [
+        "1.kt"
+      ],
+      "fasta": [
+        "1.kt"
+      ],
+      "knucleotide": [
+        "1.kt"
+      ],
+      "mandelbrot": [
+        "1.kt"
+      ],
+      "nsieve": [
+        "1.kt"
+      ],
+      "spectral-norm": [
+        "1.kt"
+      ]
+    },
+    "bench_swift.yaml": {
+      "coro-prime-sieve": [
+        "1.swift"
+      ],
+      "edigits": [
+        "1.swift"
+      ],
+      "http-server": [
+        "1.swift"
+      ],
+      "json-serde": [
+        "1.swift"
+      ],
+      "knucleotide": [
+        "1.swift"
+      ],
+      "lru": [
+        "1.swift"
+      ],
+      "mandelbrot": [
+        "1.swift"
+      ],
+      "merkletrees": [
+        "1.swift"
+      ],
+      "nsieve": [
+        "1.swift"
+      ],
+      "regex-redux": [
+        "1.swift"
+      ],
+      "secp256k1": [
+        "1.swift"
+      ],
+      "spectral-norm": [
+        "1.swift"
+      ]
+    },
+    "bench_php.yaml": {
+      "coro-prime-sieve": [
+        "1.php"
+      ],
+      "edigits": [
+        "1.php"
+      ],
+      "fannkuch-redux": [
+        "1.php"
+      ],
+      "fasta": [
+        "1.php"
+      ],
+      "http-server": [
+        "1.php"
+      ],
+      "json-serde": [
+        "1.php"
+      ],
+      "knucleotide": [
+        "1.php"
+      ],
+      "lru": [
+        "1.php"
+      ],
+      "mandelbrot": [
+        "1.php"
+      ],
+      "nbody": [
+        "1.php"
+      ],
+      "nsieve": [
+        "1.php"
+      ],
+      "pidigits": [
+        "1.php"
+      ],
+      "regex-redux": [
+        "1.php"
+      ],
+      "secp256k1": [
+        "1.php"
+      ],
+      "spectral-norm": [
+        "1.php"
+      ]
+    },
+    "bench_perl.yaml": {
+      "coro-prime-sieve": [
+        "1.pl"
+      ],
+      "edigits": [
+        "1.pl"
+      ],
+      "fannkuch-redux": [
+        "1.pl"
+      ],
+      "http-server": [
+        "1.pl"
+      ],
+      "json-serde": [
+        "1.pl"
+      ],
+      "knucleotide": [
+        "1.pl"
+      ],
+      "lru": [
+        "1.pl"
+      ],
+      "mandelbrot": [
+        "1.pl"
+      ],
+      "merkletrees": [
+        "1.pl"
+      ],
+      "nsieve": [
+        "1.pl"
+      ],
+      "pidigits": [
+        "1.pl"
+      ],
+      "regex-redux": [
+        "1.pl"
+      ],
+      "secp256k1": [
+        "1.pl"
+      ],
+      "spectral-norm": [
+        "1.pl"
+      ]
+    }
+  },
+  "drop": {
+    "bench_swift.yaml": {
+      "knucleotide": [
+        "2.swift"
+      ]
+    },
+    "bench_typescript_deno.yaml": {
+      "coro-prime-sieve": [
+        "1.ts"
+      ]
+    },
+    "bench_javascript_bun.yaml": {
+      "edigits": [
+        "1.js"
+      ]
+    },
+    "bench_ocaml.yaml": {
+      "coro-prime-sieve": [
+        "1.ml"
+      ],
+      "json-serde": [
+        "1.ml"
+      ]
+    },
+    "bench_perl.yaml": {
+      "spectral-norm": [
+        "4.pl"
+      ]
+    },
+    "bench_javascript.yaml": {
+      "http-server": [
+        "1.js"
+      ]
+    }
+  }
+}

@@ -1,6 +1,11 @@
 {
   "profiles": [
     {
+      "id": "local",
+      "name": "Apple M5 laptop",
+      "latest_run": "2026-10-20-0804"
+    },
+    {
       "id": "ci-4vcpu",
       "name": "CI · 4 vCPU / 16 GB",
       "latest_run": null
@@ -9,14 +14,16 @@
       "id": "small-vm",
       "name": "Small VM · 2 vCPU / 2 GB",
       "latest_run": null
-    },
-    {
-      "id": "local",
-      "name": "Apple M5 laptop",
-      "latest_run": "2026-10-19-1827"
     }
   ],
   "runs": [
+    {
+      "id": "2026-10-20-0804",
+      "profile": "local",
+      "started_at": "2026-10-20T04:46:42+00:00",
+      "source": "runner",
+      "rows": 504
+    },
     {
       "id": "2026-10-19-1827",
       "profile": "local",

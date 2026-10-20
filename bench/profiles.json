@@ -1,6 +1,19 @@
 {
   "profiles": [
     {
+      "id": "local",
+      "name": "Apple M5 laptop",
+      "cpuset_single": "0",
+      "cpuset_multi": "0-1",
+      "memory_mb": 4096,
+      "warmup": 1,
+      "repeats": 3,
+      "timeout_s": 600,
+      "slow_s": 30,
+      "inputs": "largest",
+      "env": {}
+    },
+    {
       "id": "ci-4vcpu",
       "name": "CI · 4 vCPU / 16 GB",
       "cpuset_single": "0",
@@ -8,7 +21,8 @@
       "memory_mb": 12288,
       "warmup": 1,
       "repeats": 3,
-      "timeout_s": 30,
+      "timeout_s": 600,
+      "slow_s": 30,
       "inputs": "all",
       "env": {}
     },
@@ -25,18 +39,6 @@
       "env": {
         "JAVA_TOOL_OPTIONS": "-Xmx1g"
       }
-    },
-    {
-      "id": "local",
-      "name": "Apple M5 laptop",
-      "cpuset_single": "0",
-      "cpuset_multi": "0-1",
-      "memory_mb": 4096,
-      "warmup": 1,
-      "repeats": 3,
-      "timeout_s": 30,
-      "inputs": "largest",
-      "env": {}
     }
   ]
 }

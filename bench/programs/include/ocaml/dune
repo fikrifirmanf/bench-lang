@@ -1,0 +1,15 @@
+(executable
+ (name app)
+ (libraries str unix threads.posix res yojson domainslib re zarith)
+ (ocamlopt_flags
+  -verbose
+  -inline
+  100
+  -O3
+  -cc
+  "gcc -pipe -Wall -O3 -fomit-frame-pointer -march=broadwell -fopenmp"
+  -nodynlink
+  -noassert
+  -unsafe
+  -fPIC)
+ (modes byte exe))

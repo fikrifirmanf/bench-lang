@@ -51,6 +51,17 @@ def cmd_measure(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_check(args: argparse.Namespace) -> int:
+    upstream.sync()
+    toolchain, profile = get_toolchain(args.toolchain), get_profile(args.profile)
+    results = measure_mod.check(toolchain, profile, _problems(args.problems), args.timing)
+    for key, status in results.items():
+        print(f"{key:32} {status}")
+    passed = sum(1 for s in results.values() if s.startswith("ok"))
+    print(f"{args.toolchain}: {passed}/{len(results)} pass the correctness checks")
+    return 0 if passed == len(results) else 1
+
+
 def cmd_merge(args: argparse.Namespace) -> int:
     run = merge_mod.merge_results(results_dir(get_profile(args.profile)), args.run_id)
     print(f"published {run.profile}/{run.id} with {len(run.rows)} rows")
@@ -91,6 +102,10 @@ def cmd_import(args: argparse.Namespace) -> int:
 def cmd_changed(args: argparse.Namespace) -> int:
     profile = get_profile(args.profile) if args.profile else None
     ids = [t.id for t in load_toolchains()] if args.all else compare.changed_toolchains(Path(args.base), TOOLCHAINS_FILE)
+    if args.changed_files:
+        paths = Path(args.changed_files).read_text().split()
+        base_sources = Path(args.base_sources) if args.base_sources else None
+        ids += [i for i in compare.program_toolchains(paths, base_sources) if i not in ids]
     if args.only:
         wanted = _problems(args.only) or set()
         ids = [i for i in ids if i in wanted]
@@ -135,6 +150,13 @@ def parser() -> argparse.ArgumentParser:
     m.add_argument("--problems", help="comma-separated problem names")
     m.set_defaults(func=cmd_measure)
 
+    k = sub.add_parser("check", help="run only the correctness checks of the last build")
+    k.add_argument("--toolchain", required=True)
+    k.add_argument("--profile", default="local")
+    k.add_argument("--problems", help="comma-separated problem names")
+    k.add_argument("--timing", action="store_true", help="also run the largest input once and print its time")
+    k.set_defaults(func=cmd_check)
+
     g = sub.add_parser("merge", help="publish measured results into data/")
     g.add_argument("--profile", required=True)
     g.add_argument("--run-id")
@@ -152,6 +174,8 @@ def parser() -> argparse.ArgumentParser:
     c = sub.add_parser("changed", help="print a CI matrix of toolchains that differ from a base toolchains.json")
     c.add_argument("--base", default="", help="path to the base version of bench/toolchains.json")
     c.add_argument("--all", action="store_true", help="select every toolchain")
+    c.add_argument("--changed-files", help="file listing changed repository paths; adds toolchains whose programs changed")
+    c.add_argument("--base-sources", help="path to the base version of bench/programs/sources.json")
     c.add_argument("--only", help="comma-separated toolchain ids to keep")
     c.add_argument("--profile", help="drop toolchains excluded from this profile")
     c.set_defaults(func=cmd_changed)

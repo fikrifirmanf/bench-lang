@@ -19,7 +19,10 @@ else
     select=(--all)
   else
     git show "$base:bench/toolchains.json" > .work/base-toolchains.json 2>/dev/null || : > .work/base-toolchains.json
-    select=(--base .work/base-toolchains.json)
+    git show "$base:bench/programs/sources.json" > .work/base-sources.json 2>/dev/null || : > .work/base-sources.json
+    git diff --name-only "$base" HEAD > .work/changed-files.txt
+    select=(--base .work/base-toolchains.json --changed-files .work/changed-files.txt
+            --base-sources .work/base-sources.json)
   fi
 fi
 

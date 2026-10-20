@@ -1,0 +1,17 @@
+opam-version: "2.0"
+name: "app"
+version: "0.1.0"
+synopsis: "Opam package"
+description: "Opam package"
+maintainer: ["hanabi1224"]
+license: ["MIT"]
+build: [
+   [ "dune" "build" "--profile" "release" ]
+]
+depends: [
+  "domainslib" {>= "0.5.0"}
+  "res" {>= "5.0.1"}
+  "yojson" {>= "2.0.2"}
+  "re" {>= "1.10.0"}
+  "zarith" {>= "1.12"}
+]

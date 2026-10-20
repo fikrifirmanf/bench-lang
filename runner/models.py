@@ -64,6 +64,8 @@ class Profile(Strict):
     warmup: int = Field(ge=0, le=5)
     repeats: int = Field(ge=1, le=20)
     timeout_s: int = Field(ge=1, le=600)
+    # When a warmup run takes longer than this, the program is timed once instead of `repeats` times; 0 disables.
+    slow_s: int = Field(default=0, ge=0)
     inputs: Literal["all", "largest"]
     env: dict[str, str] = Field(default_factory=dict)
 
@@ -124,6 +126,14 @@ class LangProblem(Loose):
     @classmethod
     def _empty_source(cls, value: object) -> object:
         return [] if value is None else value
+
+
+class SourceChanges(Strict):
+    """bench/programs/sources.json, keyed by upstream config file, then problem: programs to add (this project's
+    or upstream files its YAML does not list) and upstream programs to drop because they fail on every machine."""
+
+    add: dict[str, dict[str, list[str]]] = Field(default_factory=dict)
+    drop: dict[str, dict[str, list[str]]] = Field(default_factory=dict)
 
 
 class Environment(Loose):

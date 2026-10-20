@@ -81,6 +81,23 @@ def _argv(run_cmd: str, out: Path, args: str) -> list[str]:
     return [*argv, *shlex.split(args)]
 
 
+def _unit_tests(
+    measurer: Measurer, entry: BuildEntry, spec: ProblemSpec, out: Path, workdir: str, cpus: str
+) -> Status | None:
+    """Runs upstream's small inputs and compares the output; returns the failure, or None when all pass."""
+    for unit in spec.unittests:
+        attempt = measurer.once(_argv(entry.run_cmd, out, unit.input), workdir, cpus)
+        expected = (UPSTREAM_BENCH / "algorithm" / spec.name / unit.output).read_text()
+        produced = (out / STDOUT_FILE).read_text(errors="replace") if (out / STDOUT_FILE).is_file() else ""
+        if attempt.status != "ok" or not outputs_match(produced, expected):
+            status: Status = attempt.status if attempt.status != "ok" else "wrong-output"
+            log.info("%s %s failed check %s: %s", entry.problem, entry.source, unit.input, status)
+            if status == "wrong-output":
+                log.info("    expected %r\n    produced %r", expected[:160], produced[:160])
+            return status
+    return None
+
+
 def _measure_entry(
     measurer: Measurer, entry: BuildEntry, spec: ProblemSpec, root: Path, toolchain: Toolchain
 ) -> list[ResultRow]:
@@ -123,23 +140,25 @@ def _measure_entry(
     if entry.status != "ok":
         return [row(i, t.input, "build-fail", []) for i, t in targets]
 
-    for unit in spec.unittests:
-        attempt = measurer.once(_argv(entry.run_cmd, out, unit.input), workdir, cpus)
-        expected = (UPSTREAM_BENCH / "algorithm" / spec.name / unit.output).read_text()
-        produced = (out / STDOUT_FILE).read_text(errors="replace") if (out / STDOUT_FILE).is_file() else ""
-        if attempt.status != "ok" or not outputs_match(produced, expected):
-            status: Status = attempt.status if attempt.status != "ok" else "wrong-output"
-            log.info("%s %s failed check %s: %s", entry.problem, entry.source, unit.input, status)
-            return [row(i, t.input, status, []) for i, t in targets]
+    failed = _unit_tests(measurer, entry, spec, out, workdir, cpus)
+    if failed is not None:
+        return [row(i, t.input, failed, []) for i, t in targets]
 
     rows: list[ResultRow] = []
     for index, test in targets:
         argv = _argv(entry.run_cmd, out, test.input)
-        for _ in range(profile.warmup):
-            measurer.once(argv, workdir, cpus)
-        samples: list[Sample] = []
+        repeats = profile.repeats
         final: Status = "ok"
-        for _ in range(profile.repeats):
+        for _ in range(profile.warmup):
+            warmup = measurer.once(argv, workdir, cpus)
+            if warmup.status != "ok" or warmup.sample is None:
+                final = warmup.status
+                break
+            # A run this long varies little between repeats, and repeating it would stretch the whole run.
+            if profile.slow_s and warmup.sample.wall_ms > profile.slow_s * 1000:
+                repeats = 1
+        samples: list[Sample] = []
+        for _ in range(repeats if final == "ok" else 0):
             attempt = measurer.once(argv, workdir, cpus)
             if attempt.status != "ok" or attempt.sample is None:
                 final = attempt.status
@@ -150,31 +169,70 @@ def _measure_entry(
     return rows
 
 
-def measure(toolchain: Toolchain, profile: Profile, problems: set[str] | None = None) -> Run:
-    if profile.id in toolchain.exclude_profiles:
-        raise ValueError(f"{toolchain.id} is excluded from profile {profile.id}")
-    root = builds_dir(toolchain)
-    manifest = BuildManifest.model_validate_json((root / "manifest.json").read_text())
-    specs = {p.name: p for p in load_bench_file().problems}
+def _container(toolchain: Toolchain, profile: Profile, manifest: BuildManifest, root: Path) -> docker.Container:
     timer = ensure_timer()
-    started = datetime.now(UTC)
-
-    image = manifest.image
-    docker.pull(image)
-    box = docker.Container(
-        image=image,
+    docker.pull(manifest.image)
+    return docker.Container(
+        image=manifest.image,
         name=f"bench-run-{toolchain.id}",
         mounts=[(root, "/work", False), (timer, "/opt/bench/timer", True)],
         env={**toolchain.env, **profile.env},
         cpuset=profile.cpuset_multi,
         memory_mb=profile.memory_mb,
     )
+
+
+def _image_setup(box: docker.Container, toolchain: Toolchain) -> None:
+    if toolchain.image_setup:
+        setup = box.sh(" && ".join(toolchain.fill(s) for s in toolchain.image_setup), timeout_s=900)
+        if setup.code != 0:
+            raise docker.DockerError(f"image setup failed: {setup.stderr.strip()[-400:]}")
+
+
+def check(
+    toolchain: Toolchain, profile: Profile, problems: set[str] | None = None, timing: bool = False
+) -> dict[str, str]:
+    """Runs the correctness checks of the last build, keyed by problem/source. With `timing`, programs that pass
+    also run the largest input once, so slow ones show up before a full measurement."""
+    root = builds_dir(toolchain)
+    manifest = BuildManifest.model_validate_json((root / "manifest.json").read_text())
+    specs = {p.name: p for p in load_bench_file().problems}
+    results: dict[str, str] = {}
+    with _container(toolchain, profile, manifest, root) as box:
+        _image_setup(box, toolchain)
+        measurer = Measurer(box, profile)
+        for entry in manifest.entries:
+            if problems is not None and entry.problem not in problems:
+                continue
+            key = f"{entry.problem}/{entry.source}"
+            if entry.status != "ok":
+                results[key] = entry.status
+                continue
+            out = root / entry.path / entry.out_dir
+            cpus = profile.cpuset_multi if "multi-thread" in parse_flags(entry.source) else profile.cpuset_single
+            spec = specs[entry.problem]
+            _stage_data(spec, out)
+            workdir = f"/work/{entry.path}/{entry.out_dir}"
+            failed = _unit_tests(measurer, entry, spec, out, workdir, cpus)
+            results[key] = failed or "ok"
+            if failed is None and timing and spec.tests:
+                largest = spec.tests[-1].input
+                attempt = measurer.once(_argv(entry.run_cmd, out, largest), workdir, cpus)
+                took = f"{attempt.sample.wall_ms / 1000:.1f}s" if attempt.sample else attempt.status
+                results[key] = f"ok ({largest}: {took})"
+    return results
+
+
+def measure(toolchain: Toolchain, profile: Profile, problems: set[str] | None = None) -> Run:
+    if profile.id in toolchain.exclude_profiles:
+        raise ValueError(f"{toolchain.id} is excluded from profile {profile.id}")
+    root = builds_dir(toolchain)
+    manifest = BuildManifest.model_validate_json((root / "manifest.json").read_text())
+    specs = {p.name: p for p in load_bench_file().problems}
+    started = datetime.now(UTC)
     rows: list[ResultRow] = []
-    with box:
-        if toolchain.image_setup:
-            setup = box.sh(" && ".join(toolchain.fill(s) for s in toolchain.image_setup), timeout_s=900)
-            if setup.code != 0:
-                raise docker.DockerError(f"image setup failed: {setup.stderr.strip()[-400:]}")
+    with _container(toolchain, profile, manifest, root) as box:
+        _image_setup(box, toolchain)
         measurer = Measurer(box, profile)
         selected = [e for e in manifest.entries if problems is None or e.problem in problems]
         for entry in selected:
