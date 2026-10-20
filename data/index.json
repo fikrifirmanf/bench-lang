@@ -8,7 +8,7 @@
     {
       "id": "ci-4vcpu",
       "name": "CI · 4 vCPU / 16 GB",
-      "latest_run": null
+      "latest_run": "2026-10-20-0949"
     },
     {
       "id": "small-vm",
@@ -17,6 +17,13 @@
     }
   ],
   "runs": [
+    {
+      "id": "2026-10-20-0949",
+      "profile": "ci-4vcpu",
+      "started_at": "2026-10-20T09:15:54+00:00",
+      "source": "runner",
+      "rows": 504
+    },
     {
       "id": "2026-10-20-0804",
       "profile": "local",
