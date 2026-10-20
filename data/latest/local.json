@@ -2,7 +2,7 @@
   "id": "latest",
   "profile": "local",
   "source": "runner",
-  "started_at": "2026-10-20T04:46:42+00:00",
+  "started_at": "2026-10-20T05:08:06+00:00",
   "upstream_commit": "ad18b203dd1769724f4eea94fc3ac1e99f6593e0",
   "machine": {
     "profile": "local",
@@ -3029,11 +3029,11 @@
       "code": "2.js",
       "flags": [],
       "status": "ok",
-      "time_ms": 3466.023,
-      "stddev_ms": 105.391,
-      "user_ms": 387.168,
-      "sys_ms": 105.727,
-      "peak_mem_mb": 173.4,
+      "time_ms": 211.557,
+      "stddev_ms": 8.149,
+      "user_ms": 165.891,
+      "sys_ms": 19.742,
+      "peak_mem_mb": 117.3,
       "measured_at": "2026-10-20"
     },
     {

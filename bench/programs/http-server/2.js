@@ -1,10 +1,13 @@
 // Upstream's 1.js listens on "localhost" and requests "localhost". Node resolves the two to different addresses
 // (::1 for the server, 127.0.0.1 for the client), so every request is refused and its retry loop never ends.
 // This version binds and connects to 127.0.0.1 and gives up after repeated failures instead of hanging.
+// It also sends through a pool of 64 keep-alive sockets: opening all n connections at once overflows the
+// listen backlog on slower machines, and immediate retries then run out before the server catches up.
 const http = require("http");
 
 const host = "127.0.0.1";
-const MAX_ATTEMPTS = 100;
+const MAX_ATTEMPTS = 20;
+const agent = new http.Agent({ keepAlive: true, maxSockets: 64 });
 
 function requestListener(req, res) {
 	let body = "";
@@ -22,7 +25,7 @@ function send(api, value) {
 	return new Promise((onFulfilled, onRejected) => {
 		const req = http.request(
 			api,
-			{ method: "POST", headers: { "content-type": "application/json" } },
+			{ method: "POST", agent: agent, headers: { "content-type": "application/json" } },
 			(res) => {
 				let content = "";
 				res.on("data", (chunk) => {
@@ -43,6 +46,7 @@ async function sendAsync(api, value) {
 			return await send(api, value);
 		} catch (e) {
 			if (attempt >= MAX_ATTEMPTS) throw e;
+			await new Promise((resolve) => setTimeout(resolve, 10 * attempt));
 		}
 	}
 }
@@ -71,6 +75,7 @@ function main() {
 			console.error(e);
 			process.exitCode = 1;
 		}
+		agent.destroy();
 		server.close();
 		server.closeAllConnections();
 	});
