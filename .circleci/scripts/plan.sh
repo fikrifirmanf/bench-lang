@@ -21,6 +21,10 @@ else
     git show "$base:bench/toolchains.json" > .work/base-toolchains.json 2>/dev/null || : > .work/base-toolchains.json
     git show "$base:bench/programs/sources.json" > .work/base-sources.json 2>/dev/null || : > .work/base-sources.json
     git diff --name-only "$base" HEAD > .work/changed-files.txt
+    # Telling which toolchains use a changed program needs upstream's per-language YAML files.
+    if grep -q '^bench/programs/' .work/changed-files.txt; then
+      python -m runner sync-upstream
+    fi
     select=(--base .work/base-toolchains.json --changed-files .work/changed-files.txt
             --base-sources .work/base-sources.json)
   fi

@@ -26,7 +26,9 @@ def program_toolchains(changed_paths: list[str], base_sources: Path | None) -> l
 
     `base_sources` is the previous bench/programs/sources.json; without it a changed sources.json selects every
     toolchain it mentions."""
-    paths = set(changed_paths)
+    paths = {p for p in changed_paths if p.startswith("bench/programs/")}
+    if not paths:
+        return []
     head = load_source_changes()
     base = (
         SourceChanges.model_validate_json(base_sources.read_text())
