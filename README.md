@@ -41,7 +41,7 @@ expected.
 | profile    | where                         | CPUs (single / multi) | memory cap | repeats | inputs  |
 |------------|-------------------------------|-----------------------|------------|---------|---------|
 | `local`    | an Apple M5 laptop            | 0 / 0-1               | 4 GB       | 3       | largest |
-| `ci-4vcpu` | CI machine with 4 vCPUs       | 0 / 0-3               | 12 GB      | 3       | all     |
+| `ci-4vcpu` | CI machine with 4 vCPUs       | 0 / 0-3               | 12 GB      | 3       | largest |
 | `small-vm` | your VM, self-hosted runner   | 1 / 0-1               | 1.7 GB     | 5       | largest |
 
 The site opens on the first profile in `bench/profiles.json` that has results; the leaderboard and problem pages
@@ -142,8 +142,10 @@ of the two: disable the GitHub workflows with `gh workflow disable <name>` while
 3. Project Settings → Triggers: add a daily schedule on `main` with the pipeline parameter `run_versions` = `true`.
 4. Trigger a pipeline on `main` with the parameter `bench_toolchains` = `all` for the first full run.
 
-The benchmark job uses the `large` machine class (4 vCPU, 15 GB), about 20 credits per minute, split over 4 parallel
-machines. A full run is roughly 100–300 machine minutes; a version bump is 10–30. A push re-measures the
+The benchmark job uses the `large` machine class (4 vCPU, 15 GB), about 20 credits per minute, split over 8 parallel
+machines. The free plan stops any job after one hour, so `bench.sh` balances the toolchains across machines using
+how long each took on the M5 (`.circleci/weights.json`); update those numbers when a toolchain gets much slower. A
+full run is roughly 200–300 machine minutes; a version bump is 10–30. A push re-measures the
 toolchains whose entry in `bench/toolchains.json` changed and those whose programs under `bench/programs/` changed.
 
 ## Data

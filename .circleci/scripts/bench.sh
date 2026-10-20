@@ -13,7 +13,22 @@ if [ "${CIRCLE_BRANCH:-}" != "main" ] && [ -z "${REQUESTED:-}" ]; then
 fi
 
 mkdir -p .work/results/ci-4vcpu .work/logs
-mine=$(circleci tests split .work/plan.txt)
+# Longest toolchain first, each to the node with the least work so far, so no node exceeds the plan's
+# one-hour job limit by drawing two slow interpreters.
+mine=$(python3 - .work/plan.txt .circleci/weights.json "${CIRCLE_NODE_INDEX:-0}" "${CIRCLE_NODE_TOTAL:-1}" <<'PY'
+import json, sys
+plan, weights_file, index, total = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4])
+ids = [line.strip() for line in open(plan) if line.strip()]
+weights = json.load(open(weights_file))
+load = [0] * total
+nodes = [[] for _ in range(total)]
+for tid in sorted(ids, key=lambda t: -weights.get(t, 300)):
+    node = load.index(min(load))
+    nodes[node].append(tid)
+    load[node] += weights.get(tid, 300)
+print(" ".join(nodes[index]))
+PY
+)
 if [ -z "$mine" ]; then
   echo "Nothing assigned to this node."
   circleci-agent step halt

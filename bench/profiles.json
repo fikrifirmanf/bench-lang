@@ -23,7 +23,7 @@
       "repeats": 3,
       "timeout_s": 600,
       "slow_s": 30,
-      "inputs": "all",
+      "inputs": "largest",
       "env": {}
     },
     {
