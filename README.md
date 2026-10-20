@@ -137,7 +137,8 @@ of the two: disable the GitHub workflows with `gh workflow disable <name>` while
 
 1. Sign in at circleci.com with GitHub, set up this repository and pick the existing `.circleci/config.yml`.
 2. Project Settings → Environment Variables: add `GH_BOT_TOKEN`, the fine-grained token from step 3 above. It pushes
-   results to `main` and the version bot's branch.
+   results to `main` and the version bot's branch. Those commits are authored as the token's owner (their GitHub
+   no-reply address), because Vercel's Hobby plan deploys a private repository only for commits by its owner.
 3. Project Settings → Triggers: add a daily schedule on `main` with the pipeline parameter `run_versions` = `true`.
 4. Trigger a pipeline on `main` with the parameter `bench_toolchains` = `all` for the first full run.
 

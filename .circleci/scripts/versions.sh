@@ -17,8 +17,7 @@ remote="https://x-access-token:${GH_BOT_TOKEN}@github.com/${repo}.git"
 
 git checkout -q -B "$branch"
 git add bench/toolchains.json data/versions.json
-git config user.name "bench-lang bot"
-git config user.email "bench-lang-bot@users.noreply.github.com"
+.circleci/scripts/git-identity.sh
 git commit -q -m "Bump toolchain versions"
 git push -q --force "$remote" "$branch"
 

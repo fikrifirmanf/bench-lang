@@ -19,8 +19,7 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-git config user.name "bench-lang bot"
-git config user.email "bench-lang-bot@users.noreply.github.com"
+.circleci/scripts/git-identity.sh
 git commit -q -m "Publish benchmark results (CircleCI ${CIRCLE_BUILD_NUM}) [skip ci]"
 
 remote="https://x-access-token:${GH_BOT_TOKEN}@github.com/$(.circleci/scripts/github-repo.sh).git"

@@ -31,9 +31,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span>
             Logos from Devicon.
           </span>
-          <a className="font-semibold underline" href="https://github.com/fikrifirmanf/bench-lang">
-            Runner and site source
-          </a>
+          <span>
+            Built and maintained by{" "}
+            <a className="font-semibold underline" href="https://fikrifirmanf.com">
+              Fikri Firman Fadilah
+            </a>
+          </span>
         </footer>
       </body>
     </html>
