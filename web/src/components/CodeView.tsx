@@ -4,10 +4,6 @@ import { useEffect, useRef, useState } from "react";
 
 import type { SourceOrigin } from "@/lib/schema";
 
-// MIT asks that copies of upstream's programs carry its copyright and license, so every one shown says so.
-const UPSTREAM_LICENSE =
-  "https://github.com/hanabi1224/Programming-Language-Benchmarks/blob/ad18b203dd1769724f4eea94fc3ac1e99f6593e0/LICENSE";
-
 type Load = { state: "loading" } | { state: "ready"; html: string } | { state: "error" };
 
 export function CodeView({ problem, file, origin, onClose }: {
@@ -50,18 +46,8 @@ export function CodeView({ problem, file, origin, onClose }: {
     <div className="border-t-[2.5px] border-ink bg-paper p-4 sm:p-5">
       <div className="flex flex-wrap items-center gap-3">
         <span className="font-mono text-[15px] font-bold">{file}</span>
-        <span className="text-[14px] text-ink-soft">
-          {origin === "upstream" ? (
-            <>
-              From Programming-Language-Benchmarks · © 2021 hanabi1224 ·{" "}
-              <a href={UPSTREAM_LICENSE} className="underline">
-                MIT License
-              </a>
-            </>
-          ) : (
-            "Written for bench/lang"
-          )}
-        </span>
+        {/* Upstream's programs show no note here; its MIT notice is on the /licenses/ page. */}
+        {origin === "own" ? <span className="text-[14px] text-ink-soft">Written for bench/lang</span> : null}
         <span className="ml-auto flex gap-2">
           <button
             type="button"

@@ -81,6 +81,7 @@ def test_export_sources_copies_published_programs_and_marks_their_origin(
         PROGRAMS_DIR / "http-server" / "2.js"
     ).read_text()
     assert not (tmp_path / "sources" / "nbody" / "0-i.cpp").exists()
+    assert "MIT License" in (tmp_path / "sources" / "UPSTREAM_LICENSE").read_text()
 
 
 class FakeMeasurer(Measurer):

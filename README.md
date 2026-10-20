@@ -40,8 +40,8 @@ expected.
 
 | profile    | where                         | CPUs (single / multi) | memory cap | repeats | inputs  |
 |------------|-------------------------------|-----------------------|------------|---------|---------|
-| `local`    | an Apple M5 laptop            | 0 / 0-1               | 4 GB       | 3       | largest |
 | `ci-4vcpu` | CI machine with 4 vCPUs       | 0 / 0-3               | 12 GB      | 3       | largest |
+| `local`    | an Apple M5 laptop            | 0 / 0-1               | 4 GB       | 3       | largest |
 | `small-vm` | your VM, self-hosted runner   | 1 / 0-1               | 1.7 GB     | 5       | largest |
 
 The site opens on the first profile in `bench/profiles.json` that has results; the leaderboard and problem pages
@@ -150,14 +150,14 @@ toolchains whose entry in `bench/toolchains.json` changed and those whose progra
 
 ## Data
 
-The site currently publishes only the `local` profile (one run on an Apple M5 laptop). The earlier import of
-upstream's results was removed; `ci-4vcpu` fills in again with the first CI run. `runner import-site` can still bring
-upstream's numbers back.
+The site publishes two profiles: `ci-4vcpu`, which CircleCI keeps current and the site opens on, and `local`, from
+runs on an Apple M5 laptop. The earlier import of upstream's results was removed; `runner import-site` can still
+bring upstream's numbers back.
 
 `runner merge` also copies the source of every program with a published result into `data/sources/` (or run
 `runner sources` on its own), because the site is built without upstream's checkout. Problem pages show that code
-on request, highlighted at build time; upstream's programs carry its copyright line and MIT license link, as the
-license requires.
+on request, highlighted at build time. It also copies upstream's LICENSE, which the `/licenses/` page shows: MIT
+requires that notice wherever upstream's code is published.
 
 There is no database. Every run stays in `data/runs/<profile>/` and git keeps the full record. At build time the site
 replays those runs in order (the same fold as `runner merge`) to draw the "Over time" charts on language and problem

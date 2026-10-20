@@ -38,6 +38,8 @@ def export_sources() -> SourceIndex:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
         entries.append(SourceEntry(problem=problem, file=name, origin=origin))
+    # MIT requires upstream's copyright and license text to travel with its code; the site's /licenses/ page shows it.
+    shutil.copyfile(UPSTREAM_BENCH.parent / "LICENSE", SOURCES_DIR / "UPSTREAM_LICENSE")
     index = SourceIndex(programs=entries)
     write_json(SOURCES_DIR / "index.json", index.model_dump())
     return index

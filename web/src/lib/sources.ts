@@ -54,6 +54,11 @@ export async function highlightSource(problem: string, file: string): Promise<st
   return (await highlighter).codeToHtml(code, { lang: lang ?? "text", theme: THEME });
 }
 
+/** Upstream's LICENSE file, copied next to its programs by `runner sources`. */
+export function upstreamLicense(): string {
+  return readFileSync(path.join(sourcesRoot(), "UPSTREAM_LICENSE"), "utf8");
+}
+
 function sourcesRoot(): string {
   return path.join(process.env.BENCH_REPO_ROOT ?? path.join(process.cwd(), ".."), "data", "sources");
 }

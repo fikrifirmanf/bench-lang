@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import Link from "next/link";
 
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="mx-auto flex max-w-[1240px] flex-wrap justify-between gap-3 px-4 pb-12 text-[15px] text-ink-soft sm:px-6">
           <span>
-            Logos from Devicon.
+            Logos from Devicon.{" "}
+            <Link href="/licenses/" className="underline">
+              Licenses
+            </Link>
           </span>
           <span>
             Built and maintained by{" "}

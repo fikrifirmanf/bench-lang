@@ -1,14 +1,14 @@
 {
   "profiles": [
     {
-      "id": "local",
-      "name": "Apple M5 laptop",
-      "latest_run": "2026-10-20-0951"
-    },
-    {
       "id": "ci-4vcpu",
       "name": "CI · 4 vCPU / 16 GB",
       "latest_run": "2026-10-20-0958"
+    },
+    {
+      "id": "local",
+      "name": "Apple M5 laptop",
+      "latest_run": "2026-10-20-0951"
     },
     {
       "id": "small-vm",
