@@ -11,6 +11,8 @@ fi
 : "${GH_BOT_TOKEN:?is not set. Add it in CircleCI Project Settings > Environment Variables (see README, CircleCI section)}"
 
 python -m runner compare --profile ci-4vcpu
+# merge also copies each program's source into data/sources/, which needs upstream's files.
+python -m runner sync-upstream
 python -m runner merge --profile ci-4vcpu
 
 git add data

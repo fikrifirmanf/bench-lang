@@ -195,6 +195,8 @@ jobs:
       - name: Merge into data/
         run: |
           set -euo pipefail
+          # merge also copies each program's source into data/sources/, which needs upstream's files.
+          python -m runner sync-upstream
           for profile in ci-4vcpu small-vm; do
             if ls .work/results/$profile/*.json > /dev/null 2>&1; then
               echo "## $profile" >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,2194 @@
+{
+  "programs": [
+    {
+      "problem": "binarytrees",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.php",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.pl",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "2.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "2.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "3.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "4.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "binarytrees",
+      "file": "5.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "2-m.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "2.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "2.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "2.zig",
+      "origin": "own"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "3-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "3.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "3.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "4.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "5.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "5.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "coro-prime-sieve",
+      "file": "6.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.rb",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "edigits",
+      "file": "2.js",
+      "origin": "own"
+    },
+    {
+      "problem": "edigits",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1-im.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.nim",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.py",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.rb",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "2-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "2-im.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "2-m.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "2.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "3-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "3-i.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "3-im.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "3.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "5-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fannkuch-redux",
+      "file": "9.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.pl",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "1c.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "2.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "2.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "3.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "3.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "4.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "5-m.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "5-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "5.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "5c-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "6.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "6.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "fasta",
+      "file": "6.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.php",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.pl",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "helloworld",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1-http2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1-http2.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.bun.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.java",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "1.zig",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "2-http2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2-tls.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.cr",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.js",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.rb",
+      "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.java",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "2.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "2.nim",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "2.zig",
+      "origin": "own"
+    },
+    {
+      "problem": "json-serde",
+      "file": "3.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "4-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "json-serde",
+      "file": "5-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1-m.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.cr",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.go",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.nim",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "3-m.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "3.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "3.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "6.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "8-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "knucleotide",
+      "file": "8.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "0-unsafe.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "0-unsafe.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.java",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "lru",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "2.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "lru",
+      "file": "3.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.py",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.rb",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1a.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "1b.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "2.c",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "2.go",
+      "origin": "own"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "2.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "3.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "4.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "6.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "mandelbrot",
+      "file": "8.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.php",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "2.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "merkletrees",
+      "file": "2.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "0-i.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.pl",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "2.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "3.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "3.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "4-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "5.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "6.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "6.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "7-i.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "7.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "8-i.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "8.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nbody",
+      "file": "9.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.dart",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "nsieve",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "nsieve",
+      "file": "2.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.swift",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "3.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "3.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "4.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "pidigits",
+      "file": "8.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1-ffi.zig",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.js",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "1.ts",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "2.cr",
+      "origin": "own"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "2.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "3-m.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "3.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "3.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "5.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "6.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "regex-redux",
+      "file": "7.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.c",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.cr",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.dart",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.go",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.java",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.kt",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.ml",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.nim",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.py",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.rb",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
+      "file": "1.zig",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.cpp",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.cr",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.kt",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.nim",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.php",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.pl",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.swift",
+      "origin": "own"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "1.zig",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "2-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "2.dart",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "2.java",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "2.ml",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "2.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "3.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "3.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "4-m.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "4.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "4.rb",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "5-im.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "6-im.c",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "6-im.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "6.js",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "7-m.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "7.rs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "7.ts",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "8.cpp",
+      "origin": "upstream"
+    },
+    {
+      "problem": "spectral-norm",
+      "file": "8.py",
+      "origin": "upstream"
+    }
+  ]
+}

@@ -86,3 +86,15 @@ export const ToolchainFile = z.object({
   ),
 });
 export type Toolchain = z.infer<typeof ToolchainFile>["toolchains"][number];
+
+export const SourceIndex = z.object({
+  programs: z.array(
+    z.object({
+      problem: z.string(),
+      file: z.string(),
+      origin: z.enum(["own", "upstream"]),
+    }),
+  ),
+});
+export type SourceIndex = z.infer<typeof SourceIndex>;
+export type SourceOrigin = SourceIndex["programs"][number]["origin"];

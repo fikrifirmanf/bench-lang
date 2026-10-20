@@ -8,7 +8,7 @@ import { TrendChart, TrendEmpty } from "@/components/TrendChart";
 import { bestPerLang, formatMb, formatMs, formatRatio, langResults, langsIn, leaderboard, problemsIn, UNSCORED } from "@/lib/analysis";
 import { langName } from "@/lib/catalog";
 import { getDefaultProfile } from "@/lib/data";
-import { formatDate } from "@/lib/format";
+import { codeAnchor, formatDate } from "@/lib/format";
 import { getSnapshots, langHistory } from "@/lib/history";
 
 interface Params {
@@ -111,7 +111,15 @@ export default async function LanguagePage({ params }: Params) {
                           #{r.rank} of {r.of}
                         </span>
                       </td>
-                      <td className="px-5 py-3 font-mono text-[15px]">{r.row.code}</td>
+                      <td className="px-5 py-3 font-mono text-[15px]">
+                        {/* A full page load, so the problem page reads the #anchor and opens this program's code. */}
+                        <a
+                          href={`/problems/${r.problem}/#${codeAnchor(r.row.lang, r.row.compiler, r.row.code)}`}
+                          className="inline-flex min-h-11 items-center underline"
+                        >
+                          {r.row.code}
+                        </a>
+                      </td>
                       <td className="px-5 py-3 text-right font-mono font-bold">{formatMs(r.row.time_ms)}</td>
                       <td className="px-5 py-3 text-right font-mono">{formatMb(r.row.peak_mem_mb)}</td>
                     </tr>

@@ -154,6 +154,11 @@ The site currently publishes only the `local` profile (one run on an Apple M5 la
 upstream's results was removed; `ci-4vcpu` fills in again with the first CI run. `runner import-site` can still bring
 upstream's numbers back.
 
+`runner merge` also copies the source of every program with a published result into `data/sources/` (or run
+`runner sources` on its own), because the site is built without upstream's checkout. Problem pages show that code
+on request, highlighted at build time; upstream's programs carry its copyright line and MIT license link, as the
+license requires.
+
 There is no database. Every run stays in `data/runs/<profile>/` and git keeps the full record. At build time the site
 replays those runs in order (the same fold as `runner merge`) to draw the "Over time" charts on language and problem
 pages; they appear once a profile has two runs.

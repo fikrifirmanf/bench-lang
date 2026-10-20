@@ -12,6 +12,7 @@ from . import build as build_mod
 from . import compare, upstream, versions
 from . import measure as measure_mod
 from . import merge as merge_mod
+from . import sources as sources_mod
 from .config import DATA_DIR, TOOLCHAINS_FILE, ConfigError, get_profile, get_toolchain, load_bench_file, load_toolchains
 from .docker import DockerError
 from .importsite import import_site
@@ -65,6 +66,12 @@ def cmd_check(args: argparse.Namespace) -> int:
 def cmd_merge(args: argparse.Namespace) -> int:
     run = merge_mod.merge_results(results_dir(get_profile(args.profile)), args.run_id)
     print(f"published {run.profile}/{run.id} with {len(run.rows)} rows")
+    return cmd_sources(args)
+
+
+def cmd_sources(_args: argparse.Namespace) -> int:
+    index = sources_mod.export_sources()
+    print(f"copied {len(index.programs)} program sources into data/sources/")
     return 0
 
 
@@ -161,6 +168,9 @@ def parser() -> argparse.ArgumentParser:
     g.add_argument("--profile", required=True)
     g.add_argument("--run-id")
     g.set_defaults(func=cmd_merge)
+
+    s = sub.add_parser("sources", help="copy the source of every published program into data/sources/")
+    s.set_defaults(func=cmd_sources)
 
     v = sub.add_parser("versions", help="check toolchains for newer releases")
     v.add_argument("--write", action="store_true", help="bump pinned versions in bench/toolchains.json")

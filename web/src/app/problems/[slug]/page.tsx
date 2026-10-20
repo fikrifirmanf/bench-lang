@@ -10,6 +10,7 @@ import { CATEGORY_TINT, categoryLabel, langName, problemInfo } from "@/lib/catal
 import { getDefaultProfile, getProfiles } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { getSnapshots, problemHistory } from "@/lib/history";
+import { sourceOrigins } from "@/lib/sources";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -61,7 +62,7 @@ export default async function ProblemPage({ params }: Params) {
         </span>
       </div>
       <p className="mt-4 max-w-[640px] text-[19px] text-ink-soft">{info.summary}</p>
-      <ProblemResults problem={slug} datasets={datasets} />
+      <ProblemResults problem={slug} datasets={datasets} origins={sourceOrigins(slug)} />
 
       <section aria-labelledby="history" className="mt-14">
         <h2 id="history" className="text-balance text-3xl font-bold">

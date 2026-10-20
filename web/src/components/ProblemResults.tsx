@@ -1,13 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { Fragment, useId, useState, useSyncExternalStore } from "react";
 
 import { formatMb, formatMs, formatRatio, isMulti } from "@/lib/analysis";
 import { FLAG_LABELS, langName } from "@/lib/catalog";
-import type { ResultRow, Status } from "@/lib/schema";
+import { codeAnchor } from "@/lib/format";
+import type { ResultRow, SourceOrigin, Status } from "@/lib/schema";
 
+import { CodeView } from "./CodeView";
 import { LangIcon } from "./LangIcon";
+
+function subscribeHash(onChange: () => void): () => void {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
 
 export interface ProblemDataset {
   profile: string;
@@ -26,12 +33,20 @@ const STATUS_TEXT: Record<Status, string> = {
   "wrong-output": "wrong output",
 };
 
-export function ProblemResults({ problem, datasets }: { problem: string; datasets: ProblemDataset[] }) {
+export function ProblemResults({ problem, datasets, origins }: {
+  problem: string;
+  datasets: ProblemDataset[];
+  origins: Record<string, SourceOrigin>;
+}) {
   const [profile, setProfile] = useState(datasets[0]?.profile ?? "");
   const data = datasets.find((d) => d.profile === profile) ?? datasets[0];
   const [inputIndex, setInputIndex] = useState(data?.inputs[0]?.index ?? 0);
   const [allowMulti, setAllowMulti] = useState(false);
   const machineId = useId();
+  // The row whose code is open: whatever the visitor last toggled, or else the one the URL's #anchor names.
+  const hash = useSyncExternalStore(subscribeHash, () => window.location.hash.slice(1), () => "");
+  const [toggled, setToggled] = useState<string | null>();
+  const openRow = toggled === undefined ? hash : toggled;
 
   if (!data) return null;
   const input = data.inputs.find((i) => i.index === inputIndex) ?? data.inputs[0];
@@ -133,46 +148,78 @@ export function ProblemResults({ problem, datasets }: { problem: string; dataset
                 </tr>
               </thead>
               <tbody>
-                {measured.map((r, i) => (
-                  <tr key={`${r.lang}-${r.compiler}-${r.code}`} className="border-t-2 border-dashed border-line first:border-t-0">
-                    <td className="px-4 py-2 font-mono font-bold">{i + 1}</td>
-                    <td className="px-4 py-2">
-                      <Link href={`/languages/${r.lang}/`} className="inline-flex min-h-11 items-center gap-2.5 font-semibold hover:underline">
-                        <LangIcon slug={r.lang} size="sm" />
-                        {langName(r.lang)}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-2">
-                      <span className="font-mono text-[15px] font-medium">{r.code}</span>
-                      {r.flags.length > 0 ? (
-                        <span className="mt-1 flex flex-wrap gap-1">
-                          {r.flags.map((f) => (
-                            <span key={f} className="rounded-full border-[1.5px] border-ink bg-stone px-2 text-xs font-semibold">
-                              {FLAG_LABELS[f] ?? f}
+                {measured.map((r, i) => {
+                  const anchor = codeAnchor(r.lang, r.compiler, r.code);
+                  const origin = origins[r.code];
+                  const open = origin !== undefined && openRow === anchor;
+                  return (
+                    <Fragment key={anchor}>
+                      <tr id={anchor} className="scroll-mt-24 border-t-2 border-dashed border-line first:border-t-0">
+                        <td className="px-4 py-2 font-mono font-bold">{i + 1}</td>
+                        <td className="px-4 py-2">
+                          <Link href={`/languages/${r.lang}/`} className="inline-flex min-h-11 items-center gap-2.5 font-semibold hover:underline">
+                            <LangIcon slug={r.lang} size="sm" />
+                            {langName(r.lang)}
+                          </Link>
+                        </td>
+                        <td className="px-4 py-2">
+                          <span className="flex flex-wrap items-center gap-x-2.5">
+                            <span className="font-mono text-[15px] font-medium">{r.code}</span>
+                            {origin !== undefined ? (
+                              <button
+                                type="button"
+                                aria-expanded={open}
+                                aria-controls={`${anchor}-code`}
+                                onClick={() => setToggled(open ? null : anchor)}
+                                className={`inline-flex min-h-11 items-center rounded-lg px-1.5 text-sm font-semibold underline ${
+                                  open ? "text-ink" : "text-ink-soft hover:text-ink"
+                                }`}
+                              >
+                                {open ? "Hide code" : "View code"}
+                              </button>
+                            ) : null}
+                          </span>
+                          {r.flags.length > 0 ? (
+                            <span className="mt-1 flex flex-wrap gap-1">
+                              {r.flags.map((f) => (
+                                <span key={f} className="rounded-full border-[1.5px] border-ink bg-stone px-2 text-xs font-semibold">
+                                  {FLAG_LABELS[f] ?? f}
+                                </span>
+                              ))}
                             </span>
-                          ))}
-                        </span>
+                          ) : null}
+                        </td>
+                        <td className="px-4 py-2">
+                          <span className="flex items-center gap-3">
+                            <span className="h-3.5 flex-1 overflow-hidden rounded border-2 border-ink bg-paper">
+                              <span
+                                className={`block h-full ${i === 0 ? "bg-lemon" : "bg-sky"}`}
+                                style={{ width: barWidth(r.time_ms) }}
+                              />
+                            </span>
+                            <span className="w-16 text-right font-mono font-bold">{formatMs(r.time_ms)}</span>
+                          </span>
+                        </td>
+                        <td className="px-4 py-2 text-right font-mono">{formatRatio(r.time_ms / best)}</td>
+                        <td className="px-4 py-2 text-right font-mono text-ink-soft">{formatMs(r.stddev_ms)}</td>
+                        <td className="px-4 py-2 text-right font-mono">{formatMb(r.peak_mem_mb)}</td>
+                        <td className="px-4 py-2 font-mono text-sm text-ink-soft">
+                          {r.compiler} {r.version}
+                        </td>
+                      </tr>
+                      {open ? (
+                        <tr id={`${anchor}-code`}>
+                          <td colSpan={8} className="p-0">
+                            {/* Pinned to the visible width, so on a phone the panel does not scroll away with the wide table. */}
+                            <div className="sticky left-0 max-w-[calc(100vw-2rem-5px)] sm:max-w-[calc(100vw-3rem-5px)]">
+                              <CodeView problem={problem} file={r.code} origin={origin} onClose={() => setToggled(null)} />
+                            </div>
+                          </td>
+                        </tr>
                       ) : null}
-                    </td>
-                    <td className="px-4 py-2">
-                      <span className="flex items-center gap-3">
-                        <span className="h-3.5 flex-1 overflow-hidden rounded border-2 border-ink bg-paper">
-                          <span
-                            className={`block h-full ${i === 0 ? "bg-lemon" : "bg-sky"}`}
-                            style={{ width: barWidth(r.time_ms) }}
-                          />
-                        </span>
-                        <span className="w-16 text-right font-mono font-bold">{formatMs(r.time_ms)}</span>
-                      </span>
-                    </td>
-                    <td className="px-4 py-2 text-right font-mono">{formatRatio(r.time_ms / best)}</td>
-                    <td className="px-4 py-2 text-right font-mono text-ink-soft">{formatMs(r.stddev_ms)}</td>
-                    <td className="px-4 py-2 text-right font-mono">{formatMb(r.peak_mem_mb)}</td>
-                    <td className="px-4 py-2 font-mono text-sm text-ink-soft">
-                      {r.compiler} {r.version}
-                    </td>
-                  </tr>
-                ))}
+                    </Fragment>
+                  );
+                })}
               </tbody>
             </table>
           </div>

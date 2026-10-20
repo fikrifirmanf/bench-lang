@@ -245,6 +245,17 @@ class DataIndex(Strict):
     runs: list[RunIndexEntry]
 
 
+class SourceEntry(Strict):
+    problem: str
+    file: str
+    # "own" programs live in bench/programs/; "upstream" ones carry upstream's MIT notice on the site.
+    origin: Literal["own", "upstream"]
+
+
+class SourceIndex(Strict):
+    programs: list[SourceEntry]
+
+
 class VersionStatus(Strict):
     id: str
     lang: str

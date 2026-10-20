@@ -5,7 +5,8 @@ import pytest
 from runner.compare import program_toolchains
 from runner.config import PROGRAMS_DIR, UPSTREAM_BENCH, load_source_changes
 from runner.measure import Attempt, Measurer, _measure_entry
-from runner.models import BenchInput, BuildEntry, ProblemSpec, Profile, Toolchain
+from runner import sources
+from runner.models import BenchInput, BuildEntry, Machine, ProblemSpec, Profile, ResultRow, Run, Status, Toolchain
 from runner.stats import Sample
 
 OWN_PROGRAMS = sorted(
@@ -46,6 +47,40 @@ def test_c_and_cpp_share_one_md5_header() -> None:
 def test_changed_programs_select_only_the_toolchains_that_use_them() -> None:
     paths = ["bench/programs/regex-redux/1.c", "bench/programs/include/ocaml/dune", "web/src/app/page.tsx"]
     assert program_toolchains(paths, None) == ["c-gcc", "ocaml"]
+
+
+@pytest.mark.skipif(not UPSTREAM_BENCH.is_dir(), reason="upstream programs not synced")
+def test_export_sources_copies_published_programs_and_marks_their_origin(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    machine = Machine(profile="local", cpu="cpu", cores=1, memory_mb=1, os="linux", arch="arm64")
+
+    def row(problem: str, code: str, status: Status) -> ResultRow:
+        return ResultRow(
+            problem=problem, input="1", input_index=0, lang="x", compiler="x", version="1", code=code,
+            flags=[], status=status, time_ms=1, measured_at="2026-01-01",
+        )
+
+    run = Run(
+        id="latest", profile="local", source="runner", started_at="2026-01-01T00:00:00+00:00", upstream_commit=None,
+        machine=machine,
+        rows=[row("http-server", "2.js", "ok"), row("nbody", "1.cpp", "ok"), row("nbody", "0-i.cpp", "build-fail")],
+    )
+    (tmp_path / "latest").mkdir()
+    (tmp_path / "latest" / "local.json").write_text(run.model_dump_json())
+    monkeypatch.setattr(sources, "DATA_DIR", tmp_path)
+    monkeypatch.setattr(sources, "SOURCES_DIR", tmp_path / "sources")
+
+    index = sources.export_sources()
+
+    assert {(e.problem, e.file, e.origin) for e in index.programs} == {
+        ("http-server", "2.js", "own"),
+        ("nbody", "1.cpp", "upstream"),
+    }
+    assert (tmp_path / "sources" / "http-server" / "2.js").read_text() == (
+        PROGRAMS_DIR / "http-server" / "2.js"
+    ).read_text()
+    assert not (tmp_path / "sources" / "nbody" / "0-i.cpp").exists()
 
 
 class FakeMeasurer(Measurer):

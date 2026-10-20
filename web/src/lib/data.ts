@@ -7,7 +7,7 @@ import { DataIndex, Run, ToolchainFile, VersionReport, type Toolchain } from "./
 // The site is built from the repository's data/ and bench/ folders, one level above web/.
 const REPO_ROOT = process.env.BENCH_REPO_ROOT ?? path.join(process.cwd(), "..");
 
-function readJson<T extends z.ZodType>(relative: string, schema: T): z.infer<T> {
+export function readJson<T extends z.ZodType>(relative: string, schema: T): z.infer<T> {
   const file = path.join(REPO_ROOT, relative);
   const parsed = schema.safeParse(JSON.parse(readFileSync(file, "utf8")));
   if (!parsed.success) {
