@@ -2,14 +2,14 @@
   "id": "latest",
   "profile": "ci-4vcpu",
   "source": "runner",
-  "started_at": "2026-10-20T09:55:31+00:00",
+  "started_at": "2026-10-31T16:52:55+00:00",
   "upstream_commit": "ad18b203dd1769724f4eea94fc3ac1e99f6593e0",
   "machine": {
     "profile": "ci-4vcpu",
-    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "cpu": "AMD EPYC 9V45 96-Core Processor",
     "cores": 4,
-    "memory_mb": 15706,
-    "os": "Linux-6.14.0-1012-aws-x86_64-with-glibc2.39",
+    "memory_mb": 15983,
+    "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
     "arch": "amd64"
   },
   "rows": [
@@ -108,12 +108,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 3563.394,
-      "stddev_ms": 1.237,
-      "user_ms": 3508.56,
-      "sys_ms": 54.003,
-      "peak_mem_mb": 54.9,
-      "measured_at": "2026-10-20"
+      "time_ms": 2091.452,
+      "stddev_ms": 41.43,
+      "user_ms": 2049.022,
+      "sys_ms": 41.327,
+      "peak_mem_mb": 50.6,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "binarytrees",
@@ -516,12 +516,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 1543.928,
-      "stddev_ms": 3.867,
-      "user_ms": 1538.421,
-      "sys_ms": 5.0,
+      "time_ms": 930.519,
+      "stddev_ms": 12.624,
+      "user_ms": 922.571,
+      "sys_ms": 7.331,
       "peak_mem_mb": 12.4,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "coro-prime-sieve",
@@ -1030,12 +1030,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 124.651,
-      "stddev_ms": 1.851,
-      "user_ms": 119.15,
-      "sys_ms": 5.006,
-      "peak_mem_mb": 8.2,
-      "measured_at": "2026-10-20"
+      "time_ms": 78.036,
+      "stddev_ms": 1.757,
+      "user_ms": 74.195,
+      "sys_ms": 3.355,
+      "peak_mem_mb": 8.1,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "edigits",
@@ -1441,12 +1441,12 @@
       "code": "3.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2018.025,
-      "stddev_ms": 1.668,
-      "user_ms": 2014.424,
-      "sys_ms": 2.999,
+      "time_ms": 1601.156,
+      "stddev_ms": 13.497,
+      "user_ms": 1597.821,
+      "sys_ms": 2.665,
       "peak_mem_mb": 2.0,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "fannkuch-redux",
@@ -1986,12 +1986,12 @@
       "code": "3.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 359.224,
-      "stddev_ms": 3.767,
-      "user_ms": 327.335,
-      "sys_ms": 19.315,
+      "time_ms": 292.109,
+      "stddev_ms": 20.04,
+      "user_ms": 244.812,
+      "sys_ms": 14.703,
       "peak_mem_mb": 2.4,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "fasta",
@@ -2468,12 +2468,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 1.407,
-      "stddev_ms": 0.272,
-      "user_ms": 0.306,
-      "sys_ms": 0.701,
+      "time_ms": 1.763,
+      "stddev_ms": 0.036,
+      "user_ms": 0.169,
+      "sys_ms": 0.852,
       "peak_mem_mb": 1.6,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "helloworld",
@@ -2932,7 +2932,7 @@
       "user_ms": null,
       "sys_ms": null,
       "peak_mem_mb": null,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "http-server",
@@ -2943,13 +2943,13 @@
       "version": "1.24.5",
       "code": "1.go",
       "flags": [],
-      "status": "ok",
-      "time_ms": 968.54,
-      "stddev_ms": 15.669,
-      "user_ms": 568.666,
-      "sys_ms": 287.338,
-      "peak_mem_mb": 165.7,
-      "measured_at": "2026-10-20"
+      "status": "fail",
+      "time_ms": null,
+      "stddev_ms": null,
+      "user_ms": null,
+      "sys_ms": null,
+      "peak_mem_mb": null,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "http-server",
@@ -2966,7 +2966,7 @@
       "user_ms": null,
       "sys_ms": null,
       "peak_mem_mb": null,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "http-server",
@@ -3471,12 +3471,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 743.913,
-      "stddev_ms": 3.184,
-      "user_ms": 696.616,
-      "sys_ms": 46.641,
+      "time_ms": 457.613,
+      "stddev_ms": 2.159,
+      "user_ms": 412.557,
+      "sys_ms": 44.654,
       "peak_mem_mb": 103.6,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "json-serde",
@@ -3917,12 +3917,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 1797.374,
-      "stddev_ms": 12.067,
-      "user_ms": 1772.208,
-      "sys_ms": 24.332,
-      "peak_mem_mb": 49.3,
-      "measured_at": "2026-10-20"
+      "time_ms": 1032.823,
+      "stddev_ms": 16.516,
+      "user_ms": 1008.693,
+      "sys_ms": 23.325,
+      "peak_mem_mb": 49.2,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "knucleotide",
@@ -3939,7 +3939,7 @@
       "user_ms": null,
       "sys_ms": null,
       "peak_mem_mb": null,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "knucleotide",
@@ -4401,12 +4401,12 @@
       "code": "3.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 372.877,
-      "stddev_ms": 2.052,
-      "user_ms": 371.344,
-      "sys_ms": 1.001,
+      "time_ms": 266.437,
+      "stddev_ms": 1.765,
+      "user_ms": 264.455,
+      "sys_ms": 1.336,
       "peak_mem_mb": 1.9,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "lru",
@@ -4945,12 +4945,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2966.829,
-      "stddev_ms": 8.211,
-      "user_ms": 2961.858,
-      "sys_ms": 4.333,
+      "time_ms": 1407.535,
+      "stddev_ms": 22.681,
+      "user_ms": 1403.936,
+      "sys_ms": 2.666,
       "peak_mem_mb": 4.8,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "mandelbrot",
@@ -4962,12 +4962,12 @@
       "code": "2.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2142.997,
-      "stddev_ms": 2.779,
-      "user_ms": 2139.152,
-      "sys_ms": 3.333,
+      "time_ms": 1163.565,
+      "stddev_ms": 7.038,
+      "user_ms": 1159.707,
+      "sys_ms": 2.999,
       "peak_mem_mb": 4.8,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "mandelbrot",
@@ -5455,12 +5455,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2273.646,
-      "stddev_ms": 1.872,
-      "user_ms": 2243.222,
-      "sys_ms": 29.665,
-      "peak_mem_mb": 37.8,
-      "measured_at": "2026-10-20"
+      "time_ms": 1298.205,
+      "stddev_ms": 49.115,
+      "user_ms": 1268.638,
+      "sys_ms": 28.658,
+      "peak_mem_mb": 39.0,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "merkletrees",
@@ -5472,12 +5472,12 @@
       "code": "2.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2687.475,
-      "stddev_ms": 12.311,
-      "user_ms": 2644.756,
-      "sys_ms": 41.991,
-      "peak_mem_mb": 41.1,
-      "measured_at": "2026-10-20"
+      "time_ms": 1456.732,
+      "stddev_ms": 52.571,
+      "user_ms": 1419.02,
+      "sys_ms": 36.983,
+      "peak_mem_mb": 41.9,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "merkletrees",
@@ -5952,12 +5952,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 328.907,
-      "stddev_ms": 1.612,
-      "user_ms": 327.648,
-      "sys_ms": 0.667,
+      "time_ms": 222.548,
+      "stddev_ms": 0.954,
+      "user_ms": 220.229,
+      "sys_ms": 1.662,
       "peak_mem_mb": 1.8,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "nbody",
@@ -6500,12 +6500,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 1029.995,
-      "stddev_ms": 13.17,
-      "user_ms": 1004.215,
-      "sys_ms": 25.33,
+      "time_ms": 268.693,
+      "stddev_ms": 15.959,
+      "user_ms": 238.694,
+      "sys_ms": 29.038,
       "peak_mem_mb": 70.3,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "nsieve",
@@ -6517,12 +6517,12 @@
       "code": "2.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 714.231,
-      "stddev_ms": 3.636,
-      "user_ms": 703.785,
-      "sys_ms": 9.996,
+      "time_ms": 469.92,
+      "stddev_ms": 11.241,
+      "user_ms": 460.279,
+      "sys_ms": 9.005,
       "peak_mem_mb": 19.2,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "nsieve",
@@ -6993,12 +6993,12 @@
       "code": "8.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 1077.201,
-      "stddev_ms": 4.97,
-      "user_ms": 1063.144,
-      "sys_ms": 13.664,
-      "peak_mem_mb": 9.0,
-      "measured_at": "2026-10-20"
+      "time_ms": 710.394,
+      "stddev_ms": 9.434,
+      "user_ms": 701.006,
+      "sys_ms": 8.67,
+      "peak_mem_mb": 7.8,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "pidigits",
@@ -7401,12 +7401,12 @@
       "code": "3.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 16858.285,
-      "stddev_ms": 56.298,
-      "user_ms": 16702.412,
-      "sys_ms": 153.992,
-      "peak_mem_mb": 137.0,
-      "measured_at": "2026-10-20"
+      "time_ms": 9835.665,
+      "stddev_ms": 10.271,
+      "user_ms": 9717.508,
+      "sys_ms": 116.99,
+      "peak_mem_mb": 132.1,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "regex-redux",
@@ -7788,7 +7788,7 @@
       "user_ms": null,
       "sys_ms": null,
       "peak_mem_mb": null,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "secp256k1",
@@ -7800,12 +7800,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 2896.381,
-      "stddev_ms": 10.939,
-      "user_ms": 2879.998,
-      "sys_ms": 15.331,
-      "peak_mem_mb": 8.0,
-      "measured_at": "2026-10-20"
+      "time_ms": 1557.269,
+      "stddev_ms": 27.974,
+      "user_ms": 1545.407,
+      "sys_ms": 10.666,
+      "peak_mem_mb": 6.5,
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "secp256k1",
@@ -8302,12 +8302,12 @@
       "code": "1.go",
       "flags": [],
       "status": "ok",
-      "time_ms": 3605.939,
-      "stddev_ms": 18.615,
-      "user_ms": 3601.861,
-      "sys_ms": 3.333,
+      "time_ms": 2407.149,
+      "stddev_ms": 41.102,
+      "user_ms": 2382.888,
+      "sys_ms": 3.665,
       "peak_mem_mb": 3.2,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "spectral-norm",
@@ -8321,12 +8321,12 @@
         "multi-thread"
       ],
       "status": "ok",
-      "time_ms": 1892.525,
-      "stddev_ms": 1.501,
-      "user_ms": 7447.676,
-      "sys_ms": 17.608,
+      "time_ms": 1194.768,
+      "stddev_ms": 7.749,
+      "user_ms": 4700.576,
+      "sys_ms": 4.986,
       "peak_mem_mb": 3.4,
-      "measured_at": "2026-10-20"
+      "measured_at": "2026-10-31"
     },
     {
       "problem": "spectral-norm",
