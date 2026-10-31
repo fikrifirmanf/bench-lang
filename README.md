@@ -130,27 +130,33 @@ uses the 0.14 build API, which 0.15 removed.
    variable `SMALL_VM_ENABLED=true`.
 5. Run the **bench** workflow manually once with `all` to replace the imported numbers with your own.
 
-### CircleCI instead of GitHub Actions
+### CircleCI as the fallback
 
-`.circleci/config.yml` does the same jobs (without the small-VM leg) for when Actions is unavailable. Run only one
-of the two: disable the GitHub workflows with `gh workflow disable <name>` while CircleCI is in use.
+GitHub Actions runs the benchmarks. `.circleci/config.yml` does the same jobs (without the small-VM leg) and runs
+only when the **bench** workflow's plan, bench or publish job fails: a final `fallback` job calls CircleCI's API
+with `fallback=true`. A plain push to CircleCI does nothing, so credits are not spent while Actions works. When one
+toolchain fails, Actions still publishes the others, and CircleCI then re-measures everything the push planned.
 
 1. Sign in at circleci.com with GitHub, set up this repository and pick the existing `.circleci/config.yml`.
 2. Project Settings → Environment Variables: add `GH_BOT_TOKEN`, the fine-grained token from step 3 above. It pushes
    results to `main` and the version bot's branch. Those commits are authored as the token's owner (their GitHub
    no-reply address), because Vercel's Hobby plan deploys a private repository only for commits by its owner.
-3. Project Settings → Triggers: add a daily schedule on `main` with the pipeline parameter `run_versions` = `true`.
-4. Trigger a pipeline on `main` with the parameter `bench_toolchains` = `all` for the first full run.
+3. In GitHub, add the repository secret `CIRCLECI_TOKEN` (a CircleCI personal API token). Without it the fallback
+   job only prints a warning. If the project slug is not `gh/<owner>/<repo>` (GitHub App projects use
+   `circleci/<org-id>/<project-id>`), set the repository variable `CIRCLECI_PROJECT_SLUG`.
+4. Optional: a daily schedule in Project Settings → Triggers with `run_versions` = `true` also works, but the
+   GitHub **toolchain versions** workflow already does that.
+5. To run it by hand, trigger a pipeline on `main` with `bench_toolchains` = `all` (or a list of ids).
 
 The benchmark job uses the `large` machine class (4 vCPU, 15 GB), about 20 credits per minute, split over 8 parallel
 machines. The free plan stops any job after one hour, so `bench.sh` balances the toolchains across machines using
 how long each took on the M5 (`.circleci/weights.json`); update those numbers when a toolchain gets much slower. A
-full run is roughly 200–300 machine minutes; a version bump is 10–30. A push re-measures the
+full run is roughly 200–300 machine minutes; a version bump is 10–30. The fallback re-measures the
 toolchains whose entry in `bench/toolchains.json` changed and those whose programs under `bench/programs/` changed.
 
 ## Data
 
-The site publishes two profiles: `ci-4vcpu`, which CircleCI keeps current and the site opens on, and `local`, from
+The site publishes two profiles: `ci-4vcpu`, which the bench workflow keeps current and the site opens on, and `local`, from
 runs on an Apple M5 laptop. The earlier import of upstream's results was removed; `runner import-site` can still
 bring upstream's numbers back.
 

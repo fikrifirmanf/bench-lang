@@ -1,16 +1,23 @@
 version: 2.1
 
-# Same jobs as .github/workflows, for when GitHub Actions is unavailable.
+# Fallback for .github/workflows/bench.yml. GitHub Actions is the primary runner; when its plan, bench or
+# publish job fails, bench.yml triggers this pipeline through the API with `fallback` = true.
 #
-#   push (any branch) -> test, then benchmark the toolchains the push changed
-#   push to main      -> ...and publish the results into data/ (a [skip ci] commit, which redeploys the site)
-#   manual trigger    -> set `bench_toolchains` to "all" or a comma-separated list of toolchain ids
-#   daily schedule    -> set `run_versions` to true: bump toolchains and open a pull request
+#   fallback = true        -> test, benchmark the toolchains GitHub Actions was asked to run, publish to main
+#   bench_toolchains set   -> manual run: "all" or a comma-separated list of toolchain ids
+#   run_versions = true    -> bump toolchains and open a pull request (optional schedule)
+#   anything else (a push) -> does nothing, so CircleCI credits are not spent while Actions works
 #
 # Project environment variable GH_BOT_TOKEN: a fine-grained GitHub token for this repository with
 # Contents and Pull requests write access. It pushes results and the version bot's branch.
 
 parameters:
+  fallback:
+    type: boolean
+    default: false
+  base_revision:
+    type: string
+    default: ""
   bench_toolchains:
     type: string
     default: ""
@@ -75,7 +82,7 @@ jobs:
           command: .circleci/scripts/plan.sh
           environment:
             REQUESTED: << pipeline.parameters.bench_toolchains >>
-            BASE_REVISION: << pipeline.git.base_revision >>
+            BASE_REVISION: << pipeline.parameters.base_revision >>
       - persist_to_workspace:
           root: .work
           paths: [plan.txt]
@@ -111,6 +118,13 @@ jobs:
           at: .work
       - run: .circleci/scripts/publish.sh
 
+  skipped:
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+    steps:
+      - run: echo "GitHub Actions is the primary runner; this pipeline only runs as its fallback."
+
   versions:
     executor: py
     resource_class: small
@@ -122,7 +136,11 @@ jobs:
 workflows:
   build:
     when:
-      not: << pipeline.parameters.run_versions >>
+      and:
+        - not: << pipeline.parameters.run_versions >>
+        - or:
+            - << pipeline.parameters.fallback >>
+            - << pipeline.parameters.bench_toolchains >>
     jobs:
       - test
       - plan
@@ -138,3 +156,14 @@ workflows:
     when: << pipeline.parameters.run_versions >>
     jobs:
       - versions
+
+  # A push that starts a pipeline with no parameters ends here instead of failing with "no workflow".
+  idle:
+    when:
+      and:
+        - not: << pipeline.parameters.run_versions >>
+        - not: << pipeline.parameters.fallback >>
+        - not: << pipeline.parameters.bench_toolchains >>
+    jobs:
+      - skipped
+

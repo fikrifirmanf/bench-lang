@@ -216,3 +216,32 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Publish benchmark results (${{ github.run_id }})"
           git push
+
+  # CircleCI is the fallback: when this workflow fails on main it starts the same benchmarks there.
+  # Needs the secret CIRCLECI_TOKEN (a CircleCI personal API token). Set the variable CIRCLECI_PROJECT_SLUG
+  # when the slug is not gh/<owner>/<repo> (projects connected through the GitHub App use circleci/<org>/<project>).
+  fallback:
+    needs: [plan, bench, publish]
+    if: ${{ always() && github.event_name != 'pull_request' && (needs.plan.result == 'failure' || needs.bench.result == 'failure' || needs.publish.result == 'failure') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Trigger CircleCI
+        env:
+          CIRCLECI_TOKEN: ${{ secrets.CIRCLECI_TOKEN }}
+          SLUG: ${{ vars.CIRCLECI_PROJECT_SLUG || format('gh/{0}', github.repository) }}
+          REQUESTED: ${{ inputs.toolchains }}
+          BASE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ -z "$CIRCLECI_TOKEN" ]; then
+            echo "::warning::bench failed and CIRCLECI_TOKEN is not set, so the CircleCI fallback was not started."
+            exit 0
+          fi
+          # An all-zero "before" means a new branch; plan.sh then falls back to HEAD~1.
+          case "$BASE" in *[!0]*) ;; *) BASE="" ;; esac
+          body=$(jq -n --arg branch "$GITHUB_REF_NAME" --arg req "$REQUESTED" --arg base "$BASE" \
+            '{branch: $branch, parameters: {fallback: true, bench_toolchains: $req, base_revision: $base}}')
+          curl -fsS -X POST "https://circleci.com/api/v2/project/$SLUG/pipeline" \
+            -H "Circle-Token: $CIRCLECI_TOKEN" -H "Content-Type: application/json" -d "$body"
+          echo "Started the CircleCI fallback for $GITHUB_REF_NAME." >> "$GITHUB_STEP_SUMMARY"

@@ -6,7 +6,7 @@ mkdir -p .work
 if [ -n "${REQUESTED:-}" ]; then
   if [ "$REQUESTED" = "all" ]; then select=(--all); else select=(--all --only "$REQUESTED"); fi
 else
-  if [ "${CIRCLE_BRANCH:-}" = "main" ]; then
+  if [ "${CIRCLE_BRANCH:-}" = "main" ] || [ -n "${BASE_REVISION:-}" ]; then
     # The commit main pointed at before this push; empty on a project's first build.
     base="${BASE_REVISION:-}"
     git cat-file -e "${base:-none}^{commit}" 2>/dev/null || base=$(git rev-parse HEAD~1)
