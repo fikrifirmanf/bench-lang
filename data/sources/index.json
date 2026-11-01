@@ -1952,6 +1952,11 @@
     },
     {
       "problem": "secp256k1",
+      "file": "0-ffi.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "secp256k1",
       "file": "1.c",
       "origin": "own"
     },
