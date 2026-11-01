@@ -4,6 +4,7 @@ name: bench
 #
 #   pull request -> benchmark the toolchains the PR changed, report in the job summary, publish nothing
 #   push to main -> benchmark what changed and publish
+#   weekly       -> benchmark every toolchain and publish (Sunday 02:00 UTC)
 #   manual run   -> benchmark "all" or a comma-separated list of toolchain ids, and publish
 #
 # The small-VM leg runs on a self-hosted runner labelled `small-vm` and only when the repository
@@ -15,6 +16,8 @@ on:
   push:
     branches: [main]
     paths: ["bench/toolchains.json", "bench/profiles.json", "bench/timer/**", "runner/**"]
+  schedule:
+    - cron: "0 2 * * 0"
   workflow_dispatch:
     inputs:
       toolchains:
@@ -60,7 +63,9 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
           set -euo pipefail
-          if [ "$EVENT" = "workflow_dispatch" ]; then
+          if [ "$EVENT" = "schedule" ]; then
+            select=(--all)
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
             if [ "$INPUT" = "all" ]; then select=(--all); else select=(--all --only "$INPUT"); fi
           elif git diff --name-only "$BASE" HEAD | grep -qE '^(runner/|bench/timer/|bench/profiles.json)'; then
             select=(--all)
@@ -230,7 +235,7 @@ jobs:
         env:
           CIRCLECI_TOKEN: ${{ secrets.CIRCLECI_TOKEN }}
           SLUG: ${{ vars.CIRCLECI_PROJECT_SLUG || format('gh/{0}', github.repository) }}
-          REQUESTED: ${{ inputs.toolchains }}
+          REQUESTED: ${{ github.event_name == 'schedule' && 'all' || inputs.toolchains }}
           BASE: ${{ github.event.before }}
         run: |
           set -euo pipefail

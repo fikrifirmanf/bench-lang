@@ -128,7 +128,9 @@ uses the 0.14 build API, which 0.15 removed.
 4. **Small VM (optional):** on an x86_64 Ubuntu VM, run
    `sudo REPO_URL=https://github.com/<you>/<repo> RUNNER_TOKEN=<token> deploy/vm/setup.sh`, then set the repository
    variable `SMALL_VM_ENABLED=true`.
-5. Run the **bench** workflow manually once with `all` to replace the imported numbers with your own.
+5. The **bench** workflow also runs every Sunday at 02:00 UTC (`schedule` in `.github/workflows/bench.yml`) and
+   re-measures all toolchains. Edit the `cron` line to change it.
+6. Run the **bench** workflow manually once with `all` to replace the imported numbers with your own.
 
 ### CircleCI as the fallback
 
