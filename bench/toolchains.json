@@ -5,7 +5,7 @@
       "lang": "python",
       "config": "bench_python.yaml",
       "compiler": "cpython",
-      "version": "3.13.5",
+      "version": "3.15.2",
       "image": "python:{version}-slim-bookworm",
       "version_command": "python3 --version",
       "env": {
@@ -23,7 +23,7 @@
       "lang": "javascript",
       "config": "bench_javascript.yaml",
       "compiler": "node",
-      "version": "24.4.1",
+      "version": "26.13.0",
       "image": "node:{version}-bookworm-slim",
       "version_command": "node --version",
       "check": {
@@ -38,7 +38,7 @@
       "lang": "javascript",
       "config": "bench_javascript_bun.yaml",
       "compiler": "bun",
-      "version": "1.2.19",
+      "version": "1.4.4",
       "image": "oven/bun:{version}-slim",
       "version_command": "bun --version",
       "check": {
@@ -53,7 +53,7 @@
       "lang": "typescript",
       "config": "bench_typescript_deno.yaml",
       "compiler": "deno",
-      "version": "2.4.3",
+      "version": "2.9.8",
       "image": "denoland/deno:debian-{version}",
       "version_command": "deno --version",
       "build": "deno run --allow-all esbuild.mjs && deno compile --no-check --allow-all --unsafely-ignore-certificate-errors=localhost -o out/app app.ts",
@@ -69,7 +69,7 @@
       "lang": "go",
       "config": "bench_go.yaml",
       "compiler": "go",
-      "version": "1.24.5",
+      "version": "1.27.3",
       "image": "golang:{version}-bookworm",
       "version_command": "go version",
       "cache_dirs": [
@@ -88,7 +88,7 @@
       "lang": "rust",
       "config": "bench_rust.yaml",
       "compiler": "rustc",
-      "version": "1.88.0",
+      "version": "1.99.1",
       "image": "rust:{version}-slim-bookworm",
       "version_command": "rustc -V",
       "env": {
@@ -117,7 +117,7 @@
       "lang": "c",
       "config": "bench_c.yaml",
       "compiler": "gcc",
-      "version": "15.1.0",
+      "version": "16.2.0",
       "image": "gcc:{version}",
       "version_command": "gcc --version",
       "image_setup": [
@@ -135,7 +135,7 @@
       "lang": "cpp",
       "config": "bench_cpp.yaml",
       "compiler": "g++",
-      "version": "15.1.0",
+      "version": "16.2.0",
       "image": "gcc:{version}",
       "version_command": "g++ --version",
       "image_setup": [
@@ -153,7 +153,7 @@
       "lang": "java",
       "config": "bench_java.yaml",
       "compiler": "openjdk",
-      "version": "21",
+      "version": "27",
       "image": "eclipse-temurin:{version}-jdk",
       "version_command": "java -version 2>&1",
       "build": "javac --enable-preview --release {version} --add-modules jdk.incubator.vector app.java -d out",
@@ -170,7 +170,7 @@
       "lang": "java",
       "config": "bench_java.yaml",
       "compiler": "openjdk/zgc",
-      "version": "21",
+      "version": "27",
       "image": "eclipse-temurin:{version}-jdk",
       "version_command": "java -version 2>&1",
       "build": "javac --enable-preview --release {version} --add-modules jdk.incubator.vector app.java -d out",
@@ -209,7 +209,7 @@
       "lang": "csharp",
       "config": "bench_csharp.yaml",
       "compiler": "dotnet",
-      "version": "9.0.303",
+      "version": "10.0.403",
       "image": "mcr.microsoft.com/dotnet/sdk:{version}",
       "version_command": "dotnet --version",
       "cache_dirs": [
@@ -227,7 +227,7 @@
       "lang": "ruby",
       "config": "bench_ruby.yaml",
       "compiler": "ruby",
-      "version": "3.4.5",
+      "version": "4.0.9",
       "image": "ruby:{version}-slim-bookworm",
       "version_command": "ruby --version",
       "check": {
@@ -242,7 +242,7 @@
       "lang": "ruby",
       "config": "bench_ruby.yaml",
       "compiler": "ruby/yjit",
-      "version": "3.4.5",
+      "version": "4.0.9",
       "image": "ruby:{version}-slim-bookworm",
       "version_command": "ruby --version",
       "check": {
@@ -257,7 +257,7 @@
       "lang": "php",
       "config": "bench_php.yaml",
       "compiler": "php",
-      "version": "8.2.29",
+      "version": "8.5.12",
       "image": "php:{version}-cli-bookworm",
       "image_setup": [
         "apt-get update -qq && apt-get install -y -qq --no-install-recommends libgmp-dev > /dev/null && docker-php-ext-install gmp > /dev/null"
@@ -276,7 +276,7 @@
       "lang": "perl",
       "config": "bench_perl.yaml",
       "compiler": "perl",
-      "version": "5.40.2",
+      "version": "5.44.0",
       "image": "perl:{version}-bookworm",
       "image_setup": [
         "cpanm -nq Math::GMP > /dev/null"
@@ -294,7 +294,7 @@
       "lang": "nim",
       "config": "bench_nim.yaml",
       "compiler": "nim",
-      "version": "2.2.4",
+      "version": "2.4.0",
       "image": "nimlang/nim:{version}",
       "version_command": "nim --version",
       "cache_dirs": [
@@ -312,7 +312,7 @@
       "lang": "crystal",
       "config": "bench_crystal.yaml",
       "compiler": "crystal",
-      "version": "1.17.0",
+      "version": "1.22.2",
       "image": "crystallang/crystal:{version}",
       "version_command": "crystal version",
       "check": {
@@ -327,7 +327,7 @@
       "lang": "dart",
       "config": "bench_dart.yaml",
       "compiler": "dart/exe",
-      "version": "3.8.2",
+      "version": "3.13.7",
       "image": "dart:{version}",
       "version_command": "dart --version 2>&1",
       "cache_dirs": [
@@ -345,7 +345,7 @@
       "lang": "swift",
       "config": "bench_swift.yaml",
       "compiler": "swift",
-      "version": "6.1.2",
+      "version": "6.4.2",
       "image": "swift:{version}-noble",
       "version_command": "swift --version 2>&1",
       "check": {
@@ -378,7 +378,7 @@
       "lang": "ocaml",
       "config": "bench_ocaml.yaml",
       "compiler": "ocaml",
-      "version": "5.3",
+      "version": "5.5",
       "image": "ocaml/opam:debian-12-ocaml-{version}",
       "version_command": "opam exec -- ocaml -version",
       "check": {
