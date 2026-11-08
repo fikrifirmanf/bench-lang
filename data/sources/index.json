@@ -837,8 +837,18 @@
     },
     {
       "problem": "http-server",
+      "file": "2.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
       "file": "2.js",
       "origin": "own"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.kt",
+      "origin": "upstream"
     },
     {
       "problem": "http-server",
