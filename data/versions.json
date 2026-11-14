@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-31T21:31:18+00:00",
+  "checked_at": "2026-11-14T10:35:30+00:00",
   "toolchains": [
     {
       "id": "python",
@@ -14,8 +14,8 @@
       "id": "node",
       "lang": "javascript",
       "compiler": "node",
-      "current": "26.13.0",
-      "latest": "26.13.0",
+      "current": "26.13.1",
+      "latest": "26.13.1",
       "status": "current",
       "error": null
     },
@@ -41,8 +41,8 @@
       "id": "go",
       "lang": "go",
       "compiler": "go",
-      "current": "1.27.3",
-      "latest": "1.27.3",
+      "current": "1.27.4",
+      "latest": "1.27.4",
       "status": "current",
       "error": null
     },
@@ -50,8 +50,8 @@
       "id": "rust",
       "lang": "rust",
       "compiler": "rustc",
-      "current": "1.99.1",
-      "latest": "1.99.1",
+      "current": "1.100.0",
+      "latest": "1.100.0",
       "status": "current",
       "error": null
     },
@@ -104,8 +104,8 @@
       "id": "dotnet",
       "lang": "csharp",
       "compiler": "dotnet",
-      "current": "10.0.403",
-      "latest": "10.0.403",
+      "current": "11.0.100",
+      "latest": "11.0.100",
       "status": "current",
       "error": null
     },
@@ -158,8 +158,8 @@
       "id": "crystal",
       "lang": "crystal",
       "compiler": "crystal",
-      "current": "1.22.2",
-      "latest": "1.22.2",
+      "current": "1.22.3",
+      "latest": "1.22.3",
       "status": "current",
       "error": null
     },
@@ -167,8 +167,8 @@
       "id": "dart",
       "lang": "dart",
       "compiler": "dart/exe",
-      "current": "3.13.7",
-      "latest": "3.13.7",
+      "current": "3.14.0",
+      "latest": "3.14.0",
       "status": "current",
       "error": null
     },
