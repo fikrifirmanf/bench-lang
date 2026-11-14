@@ -23,7 +23,7 @@
       "lang": "javascript",
       "config": "bench_javascript.yaml",
       "compiler": "node",
-      "version": "26.13.0",
+      "version": "26.13.1",
       "image": "node:{version}-bookworm-slim",
       "version_command": "node --version",
       "check": {
@@ -69,7 +69,7 @@
       "lang": "go",
       "config": "bench_go.yaml",
       "compiler": "go",
-      "version": "1.27.3",
+      "version": "1.27.4",
       "image": "golang:{version}-bookworm",
       "version_command": "go version",
       "cache_dirs": [
@@ -88,7 +88,7 @@
       "lang": "rust",
       "config": "bench_rust.yaml",
       "compiler": "rustc",
-      "version": "1.99.1",
+      "version": "1.100.0",
       "image": "rust:{version}-slim-bookworm",
       "version_command": "rustc -V",
       "env": {
@@ -209,7 +209,7 @@
       "lang": "csharp",
       "config": "bench_csharp.yaml",
       "compiler": "dotnet",
-      "version": "10.0.403",
+      "version": "11.0.100",
       "image": "mcr.microsoft.com/dotnet/sdk:{version}",
       "version_command": "dotnet --version",
       "cache_dirs": [
@@ -312,7 +312,7 @@
       "lang": "crystal",
       "config": "bench_crystal.yaml",
       "compiler": "crystal",
-      "version": "1.22.2",
+      "version": "1.22.3",
       "image": "crystallang/crystal:{version}",
       "version_command": "crystal version",
       "check": {
@@ -327,7 +327,7 @@
       "lang": "dart",
       "config": "bench_dart.yaml",
       "compiler": "dart/exe",
-      "version": "3.13.7",
+      "version": "3.14.0",
       "image": "dart:{version}",
       "version_command": "dart --version 2>&1",
       "cache_dirs": [
