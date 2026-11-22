@@ -712,6 +712,11 @@
     },
     {
       "problem": "http-server",
+      "file": "1-http2.go",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
       "file": "1-http2.rs",
       "origin": "upstream"
     },
@@ -828,6 +833,11 @@
     {
       "problem": "http-server",
       "file": "2.cs",
+      "origin": "upstream"
+    },
+    {
+      "problem": "http-server",
+      "file": "2.dart",
       "origin": "upstream"
     },
     {
