@@ -23,7 +23,7 @@
       "lang": "javascript",
       "config": "bench_javascript.yaml",
       "compiler": "node",
-      "version": "26.13.0",
+      "version": "26.13.1",
       "image": "node:{version}-bookworm-slim",
       "version_command": "node --version",
       "check": {
@@ -38,7 +38,7 @@
       "lang": "javascript",
       "config": "bench_javascript_bun.yaml",
       "compiler": "bun",
-      "version": "1.4.4",
+      "version": "1.4.5",
       "image": "oven/bun:{version}-slim",
       "version_command": "bun --version",
       "check": {
@@ -69,7 +69,7 @@
       "lang": "go",
       "config": "bench_go.yaml",
       "compiler": "go",
-      "version": "1.27.3",
+      "version": "1.27.4",
       "image": "golang:{version}-bookworm",
       "version_command": "go version",
       "cache_dirs": [
@@ -88,7 +88,7 @@
       "lang": "rust",
       "config": "bench_rust.yaml",
       "compiler": "rustc",
-      "version": "1.99.1",
+      "version": "1.100.0",
       "image": "rust:{version}-slim-bookworm",
       "version_command": "rustc -V",
       "env": {
@@ -209,7 +209,7 @@
       "lang": "csharp",
       "config": "bench_csharp.yaml",
       "compiler": "dotnet",
-      "version": "10.0.403",
+      "version": "11.0.100",
       "image": "mcr.microsoft.com/dotnet/sdk:{version}",
       "version_command": "dotnet --version",
       "cache_dirs": [
@@ -227,7 +227,7 @@
       "lang": "ruby",
       "config": "bench_ruby.yaml",
       "compiler": "ruby",
-      "version": "4.0.9",
+      "version": "4.0.10",
       "image": "ruby:{version}-slim-bookworm",
       "version_command": "ruby --version",
       "check": {
@@ -242,7 +242,7 @@
       "lang": "ruby",
       "config": "bench_ruby.yaml",
       "compiler": "ruby/yjit",
-      "version": "4.0.9",
+      "version": "4.0.10",
       "image": "ruby:{version}-slim-bookworm",
       "version_command": "ruby --version",
       "check": {
@@ -257,7 +257,7 @@
       "lang": "php",
       "config": "bench_php.yaml",
       "compiler": "php",
-      "version": "8.5.12",
+      "version": "8.6.0",
       "image": "php:{version}-cli-bookworm",
       "image_setup": [
         "apt-get update -qq && apt-get install -y -qq --no-install-recommends libgmp-dev > /dev/null && docker-php-ext-install gmp > /dev/null"
@@ -312,7 +312,7 @@
       "lang": "crystal",
       "config": "bench_crystal.yaml",
       "compiler": "crystal",
-      "version": "1.22.2",
+      "version": "1.22.3",
       "image": "crystallang/crystal:{version}",
       "version_command": "crystal version",
       "check": {
@@ -327,7 +327,7 @@
       "lang": "dart",
       "config": "bench_dart.yaml",
       "compiler": "dart/exe",
-      "version": "3.13.7",
+      "version": "3.14.1",
       "image": "dart:{version}",
       "version_command": "dart --version 2>&1",
       "cache_dirs": [
@@ -345,7 +345,7 @@
       "lang": "swift",
       "config": "bench_swift.yaml",
       "compiler": "swift",
-      "version": "6.4.2",
+      "version": "6.4.3",
       "image": "swift:{version}-noble",
       "version_command": "swift --version 2>&1",
       "check": {
